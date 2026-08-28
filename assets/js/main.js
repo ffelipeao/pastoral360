@@ -130,7 +130,6 @@ if (whatsappUrl && whatsappContainer) {
 
 if (whatsappUrl && floatingWhatsapp) {
   floatingWhatsapp.href = whatsappUrl.href;
-  floatingWhatsapp.hidden = false;
 }
 
 if (whatsappUrl && footerContacts) {

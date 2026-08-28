@@ -55,7 +55,7 @@ check(/'Return-Path: ' \. CONTACT_EMAIL/.test(await readFile('contact.php', 'utf
 check(/'-f' \. CONTACT_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O remetente de envelope não está configurado na função mail.');
 check(/whatsappNumber:\s*'5521964239334'/.test(javascript), 'O WhatsApp comercial não está configurado no formato internacional esperado.');
 check(/noopener noreferrer/.test(javascript), 'Links externos em nova aba não possuem proteção contra acesso à janela de origem.');
-check(/data-floating-whatsapp/.test(html), 'O botão flutuante do WhatsApp não foi encontrado.');
+check(/data-floating-whatsapp(?![^>]*hidden)/.test(html), 'O botão flutuante do WhatsApp não está permanentemente visível.');
 check(/floatingWhatsapp\.href = whatsappUrl\.href/.test(javascript), 'O botão flutuante não reutiliza o WhatsApp configurado.');
 check(/\.floating-whatsapp\s*\{[^}]*position:\s*fixed/s.test(css), 'O botão do WhatsApp não está fixo na página.');
 check(existsSync('.htaccess'), 'A configuração de segurança da hospedagem não foi encontrada.');
