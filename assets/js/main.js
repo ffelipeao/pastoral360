@@ -9,7 +9,8 @@ const mobileMenuQuery = window.matchMedia('(max-width: 63.9375rem)');
 const SITE_CONFIG = Object.freeze({
   siteUrl: '',
   socialImagePath: '',
-  whatsappNumber: '',
+  whatsappNumber: '5521964239334',
+  whatsappMessage: 'Olá! Gostaria de conhecer o Portal Pastoral 360 e solicitar uma demonstração.',
   contactEmail: '',
 });
 
@@ -78,17 +79,34 @@ if (currentYear) currentYear.textContent = String(new Date().getFullYear());
 
 const whatsappNumber = SITE_CONFIG.whatsappNumber.replace(/\D/g, '');
 const whatsappContainer = document.querySelector('[data-whatsapp-container]');
+const footerContacts = document.querySelector('[data-footer-contacts]');
+const contactFallback = document.querySelector('[data-contact-fallback]');
 if (whatsappNumber && whatsappContainer) {
   const whatsappLink = document.createElement('a');
   whatsappLink.className = 'button button-secondary';
-  whatsappLink.href = `https://wa.me/${whatsappNumber}`;
+  const whatsappMessage = SITE_CONFIG.whatsappMessage.trim();
+  const whatsappUrl = new URL(`https://wa.me/${whatsappNumber}`);
+  if (whatsappMessage) whatsappUrl.searchParams.set('text', whatsappMessage);
+  whatsappLink.href = whatsappUrl.href;
+  whatsappLink.target = '_blank';
+  whatsappLink.rel = 'noopener noreferrer';
   whatsappLink.textContent = 'Falar pelo WhatsApp';
   whatsappContainer.append(whatsappLink);
   whatsappContainer.hidden = false;
 }
 
-const footerContacts = document.querySelector('[data-footer-contacts]');
-const contactFallback = document.querySelector('[data-contact-fallback]');
+if (whatsappNumber && footerContacts) {
+  const item = document.createElement('li');
+  const link = document.createElement('a');
+  link.href = `https://wa.me/${whatsappNumber}`;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = 'WhatsApp: (21) 96423-9334';
+  item.append(link);
+  footerContacts.append(item);
+  if (contactFallback) contactFallback.hidden = true;
+}
+
 if (SITE_CONFIG.contactEmail && footerContacts) {
   const item = document.createElement('li');
   const link = document.createElement('a');

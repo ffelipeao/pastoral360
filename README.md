@@ -32,11 +32,30 @@ publicável. O checklist completo, incluindo os testes manuais, está em
 1. Configure em `assets/js/main.js` apenas os dados comerciais confirmados em
    `SITE_CONFIG` (URL oficial, imagem social e canais de contato).
 2. Execute os comandos da seção **Validar** e conclua o checklist manual.
-3. Publique `index.html` e a pasta `assets/` preservando a estrutura de caminhos.
-4. Configure o diretório publicado como raiz do site e habilite HTTPS na
-   hospedagem.
+3. Publique `index.html`, `.htaccess` e a pasta `assets/`, preservando a
+   estrutura de caminhos e garantindo que arquivos iniciados por ponto sejam
+   incluídos no deploy.
+4. Configure o diretório publicado como raiz do site, habilite HTTPS na
+   hospedagem e confirme que o redirecionamento de HTTP para HTTPS funciona.
 5. Após publicar, repita o checklist na URL definitiva e execute o Lighthouse
    em modo móvel.
 
 Serviços como GitHub Pages, Netlify, Cloudflare Pages ou hospedagens equivalentes
 podem servir estes arquivos diretamente, sem comando de build.
+
+## Segurança e privacidade na KingHost
+
+O arquivo `.htaccess` desabilita listagem de diretórios, força HTTPS e configura
+cabeçalhos contra interpretação indevida de conteúdo, enquadramento por páginas
+externas e acesso desnecessário a recursos do dispositivo. Depois do deploy,
+confirme no painel da KingHost que o certificado SSL está ativo antes de testar o
+redirecionamento.
+
+A política de conteúdo permite somente os ativos locais, o Google Analytics já
+presente no projeto e suas conexões necessárias. Caso outro serviço externo seja
+adicionado, revise a `Content-Security-Policy` de forma restritiva.
+
+O Google Analytics atualmente carrega assim que a página é aberta. Antes da
+publicação definitiva, valide a necessidade de consentimento e de uma política de
+privacidade conforme o fluxo de dados adotado e a LGPD. Senhas, tokens e acessos
+da KingHost nunca devem ser adicionados ao repositório.
