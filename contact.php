@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 const CONTACT_EMAIL = 'contato@pastoral360.com.br';
+const CONTACT_COPY_EMAIL = 'feliperj629@gmail.com';
 const MAX_FIELD_LENGTH = 160;
 const MAX_MESSAGE_LENGTH = 4000;
 
@@ -99,6 +100,7 @@ $body = implode("\r\n", [
 $headers = implode("\r\n", [
     'From: Portal Pastoral 360 <' . CONTACT_EMAIL . '>',
     'Reply-To: ' . $replyTo,
+    'Cc: ' . CONTACT_COPY_EMAIL,
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
     'Content-Transfer-Encoding: 8bit',

@@ -64,9 +64,10 @@ da KingHost nunca devem ser adicionados ao repositório.
 ## Envio do formulário
 
 O endpoint `contact.php` usa o SMTP Web da hospedagem por meio da função `mail()`
-e envia as mensagens para `contato@pastoral360.com.br`. Conforme a política da
-KingHost, essa conta precisa existir, estar ativa e pertencer ao domínio
-hospedado. Nenhuma senha de e-mail é necessária ou deve ser colocada no código.
+e envia as mensagens para `contato@pastoral360.com.br`, com cópia para
+`feliperj629@gmail.com`. Conforme a política da KingHost, a conta usada como
+remetente precisa existir, estar ativa e pertencer ao domínio hospedado. Nenhuma
+senha de e-mail é necessária ou deve ser colocada no código.
 
 O formulário valida os dados no navegador e novamente no servidor, inclui campo
 anti-spam e não usa informações do visitante nos cabeçalhos sem validação. Após

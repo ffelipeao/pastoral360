@@ -47,6 +47,9 @@ check(/name="telefone"[^>]*type="tel"[^>]*required/.test(html), 'O telefone/What
 check(/name="email"[^>]*type="email"/.test(html) && !/name="email"[^>]*required/.test(html), 'O e-mail separado e opcional não está configurado.');
 check(/post_value\('telefone'\)/.test(await readFile('contact.php', 'utf8')), 'O endpoint PHP não recebe o telefone separado.');
 check(existsSync('contact.php'), 'O endpoint PHP de contato não foi encontrado.');
+check(/const CONTACT_EMAIL = 'contato@pastoral360\.com\.br'/.test(await readFile('contact.php', 'utf8')), 'O destinatário principal do formulário está incorreto.');
+check(/const CONTACT_COPY_EMAIL = 'feliperj629@gmail\.com'/.test(await readFile('contact.php', 'utf8')), 'O destinatário da cópia do formulário está incorreto.');
+check(/'Cc: ' \. CONTACT_COPY_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O cabeçalho de cópia não está configurado no envio PHP.');
 check(/whatsappNumber:\s*'5521964239334'/.test(javascript), 'O WhatsApp comercial não está configurado no formato internacional esperado.');
 check(/noopener noreferrer/.test(javascript), 'Links externos em nova aba não possuem proteção contra acesso à janela de origem.');
 check(existsSync('.htaccess'), 'A configuração de segurança da hospedagem não foi encontrada.');
