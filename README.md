@@ -1,4 +1,4 @@
-# Portal Pastoral 360
+# Pastoral 360
 
 Site institucional construído com HTML, CSS e JavaScript, com um endpoint PHP
 pequeno para envio do formulário de contato.

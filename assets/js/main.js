@@ -10,7 +10,7 @@ const SITE_CONFIG = Object.freeze({
   siteUrl: '',
   socialImagePath: '',
   whatsappNumber: '5521964239334',
-  whatsappMessage: 'Olá! Gostaria de conhecer o Portal Pastoral 360 e solicitar uma demonstração.',
+  whatsappMessage: 'Olá! Gostaria de conhecer o Pastoral 360 e solicitar uma demonstração.',
   contactEmail: 'contato@pastoral360.com.br',
 });
 
@@ -44,13 +44,13 @@ if (isPublicHttpUrl(SITE_CONFIG.siteUrl)) {
     appendMetadata('meta[property="og:image"]', { property: 'og:image', content: socialImageUrl });
     appendMetadata('meta[property="og:image:alt"]', {
       property: 'og:image:alt',
-      content: 'Portal Pastoral 360 — gestão integrada para igrejas',
+      content: 'Pastoral 360 — gestão integrada para igrejas',
     });
     appendMetadata('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' });
     appendMetadata('meta[name="twitter:image"]', { name: 'twitter:image', content: socialImageUrl });
     appendMetadata('meta[name="twitter:image:alt"]', {
       name: 'twitter:image:alt',
-      content: 'Portal Pastoral 360 — gestão integrada para igrejas',
+      content: 'Pastoral 360 — gestão integrada para igrejas',
     });
   }
 }

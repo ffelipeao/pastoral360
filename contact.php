@@ -25,8 +25,8 @@ function respond(int $status, string $message): never
     $safeMessage = htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     echo '<!doctype html><html lang="pt-BR"><meta charset="UTF-8">';
     echo '<meta name="viewport" content="width=device-width,initial-scale=1">';
-    echo '<title>Contato — Portal Pastoral 360</title>';
-    echo '<body><main><h1>Portal Pastoral 360</h1><p>' . $safeMessage . '</p>';
+    echo '<title>Contato — Pastoral 360</title>';
+    echo '<body><main><h1>Pastoral 360</h1><p>' . $safeMessage . '</p>';
     echo '<p><a href="./#contato">Voltar ao formulário</a></p></main></body></html>';
     exit;
 }
@@ -83,7 +83,7 @@ if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 $replyTo = $email !== '' ? $email : CONTACT_EMAIL;
-$subjectText = 'Novo contato pelo site — Portal Pastoral 360';
+$subjectText = 'Novo contato pelo site — Pastoral 360';
 $subject = '=?UTF-8?B?' . base64_encode($subjectText) . '?=';
 $body = implode("\r\n", [
     'Novo pedido de contato recebido pelo site.',
@@ -98,7 +98,7 @@ $body = implode("\r\n", [
     $message,
 ]);
 $headers = implode("\r\n", [
-    'From: Portal Pastoral 360 <' . CONTACT_EMAIL . '>',
+    'From: Pastoral 360 <' . CONTACT_EMAIL . '>',
     'Sender: ' . CONTACT_EMAIL,
     'Reply-To: ' . $replyTo,
     'Return-Path: ' . CONTACT_EMAIL,
