@@ -99,7 +99,9 @@ $body = implode("\r\n", [
 ]);
 $headers = implode("\r\n", [
     'From: Portal Pastoral 360 <' . CONTACT_EMAIL . '>',
+    'Sender: ' . CONTACT_EMAIL,
     'Reply-To: ' . $replyTo,
+    'Return-Path: ' . CONTACT_EMAIL,
     'Cc: ' . CONTACT_COPY_EMAIL,
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
@@ -107,9 +109,15 @@ $headers = implode("\r\n", [
     'X-Mailer: PHP/' . PHP_VERSION,
 ]);
 
-if (!mail(CONTACT_EMAIL, $subject, $body, $headers)) {
-    error_log('[pastoral360] Falha ao enviar formulário de contato.');
-    respond(503, 'Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.');
+$sent = mail(CONTACT_EMAIL, $subject, $body, $headers, '-f' . CONTACT_EMAIL);
+
+if (!$sent) {
+    $lastError = error_get_last();
+    $errorDetail = is_array($lastError) && isset($lastError['message'])
+        ? ' Detalhe do PHP: ' . $lastError['message']
+        : '';
+    error_log('[pastoral360] Falha ao enviar formulário de contato.' . $errorDetail);
+    respond(503, 'Não foi possível enviar sua mensagem agora. Tente novamente em alguns instantes.');
 }
 
 respond(200, 'Mensagem enviada. Em breve entraremos em contato.');

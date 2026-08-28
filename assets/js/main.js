@@ -211,7 +211,7 @@ contactForm?.addEventListener('submit', (event) => {
       if (formStatus) formStatus.textContent = data.message;
     })
     .catch((error) => {
-      if (formStatus) formStatus.textContent = `${error.message} Você também pode falar conosco pelo WhatsApp.`;
+      if (formStatus) formStatus.textContent = `${error.message} Como alternativa, fale conosco pelo WhatsApp.`;
     })
     .finally(() => {
       if (submitButton) submitButton.disabled = false;

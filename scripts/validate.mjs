@@ -50,6 +50,9 @@ check(existsSync('contact.php'), 'O endpoint PHP de contato não foi encontrado.
 check(/const CONTACT_EMAIL = 'contato@pastoral360\.com\.br'/.test(await readFile('contact.php', 'utf8')), 'O destinatário principal do formulário está incorreto.');
 check(/const CONTACT_COPY_EMAIL = 'feliperj629@gmail\.com'/.test(await readFile('contact.php', 'utf8')), 'O destinatário da cópia do formulário está incorreto.');
 check(/'Cc: ' \. CONTACT_COPY_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O cabeçalho de cópia não está configurado no envio PHP.');
+check(/'Sender: ' \. CONTACT_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O cabeçalho Sender do SMTP Web não está configurado.');
+check(/'Return-Path: ' \. CONTACT_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O retorno do SMTP Web não está configurado.');
+check(/'-f' \. CONTACT_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O remetente de envelope não está configurado na função mail.');
 check(/whatsappNumber:\s*'5521964239334'/.test(javascript), 'O WhatsApp comercial não está configurado no formato internacional esperado.');
 check(/noopener noreferrer/.test(javascript), 'Links externos em nova aba não possuem proteção contra acesso à janela de origem.');
 check(/data-floating-whatsapp/.test(html), 'O botão flutuante do WhatsApp não foi encontrado.');
