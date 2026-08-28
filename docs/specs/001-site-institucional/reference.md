@@ -236,17 +236,22 @@ As cores finais devem ser transformadas em tokens e testadas conforme WCAG.
 - Ícones consistentes, preferencialmente de uma única biblioteca.
 - Mockup principal do dashboard.
 - Detalhes gráficos sutis que sugiram conexão entre módulos.
-- Animações curtas e opcionais, respeitando `prefers-reduced-motion`.
+- Entrada progressiva e sutil dos cards conforme eles entram na área visível durante a rolagem.
+- Animações curtas e opcionais, respeitando `prefers-reduced-motion` e sem ocultar conteúdo quando JavaScript estiver indisponível.
+- Alternância entre tema claro e escuro, com paletas próprias e contraste adequado nos dois modos.
 
 ## 8. Requisitos funcionais
 
 - Todos os links de navegação devem levar à seção correta.
 - O menu móvel deve abrir, fechar e manter navegação por teclado.
+- O cabeçalho deve oferecer um botão acessível para alternar entre os temas claro e escuro.
+- O tema inicial deve considerar a preferência do sistema e escolhas manuais devem ser persistidas no navegador.
 - CTAs devem apontar para o formulário ou WhatsApp configurado.
 - O formulário deve validar campos obrigatórios e informar sucesso/erro de forma acessível.
 - Enquanto não houver backend, o formulário não deve fingir que enviou dados.
 - FAQ deve funcionar por teclado e expor corretamente o estado aberto/fechado.
 - Conteúdo essencial deve permanecer disponível sem animações.
+- Cards devem aparecer progressivamente durante a rolagem, sem bloquear leitura, navegação ou indexação.
 
 ## 9. Requisitos não funcionais
 
@@ -327,9 +332,9 @@ A decisão entre as opções deve ocorrer antes da implementação, evitando adi
 
 ### Etapa 3 — Sistema visual
 
-**Entregáveis:** paleta, tipografia, espaçamentos, botões, cards, ícones e estados interativos.
+**Entregáveis:** paletas clara e escura, tipografia, espaçamentos, botões, cards, ícones e estados interativos.
 
-**Critério de conclusão:** os componentes têm comportamento consistente e contraste validado.
+**Critério de conclusão:** os componentes têm comportamento consistente e contraste validado nos dois temas.
 
 ### Etapa 4 — Implementação estrutural
 
@@ -339,9 +344,9 @@ A decisão entre as opções deve ocorrer antes da implementação, evitando adi
 
 ### Etapa 5 — Interações e conversão
 
-**Entregáveis:** menu móvel, navegação suave, FAQ, formulário validado e links de contato configuráveis.
+**Entregáveis:** menu móvel, alternância de tema, revelação progressiva dos cards, navegação suave, FAQ, formulário validado e links de contato configuráveis.
 
-**Critério de conclusão:** interações funcionam com mouse, toque e teclado; formulário comunica claramente que ainda é demonstrativo, se não houver envio real.
+**Critério de conclusão:** interações funcionam com mouse, toque e teclado; preferência de tema é preservada; animações respeitam redução de movimento; formulário comunica claramente que ainda é demonstrativo, se não houver envio real.
 
 ### Etapa 6 — Ativos e acabamento
 

@@ -25,7 +25,9 @@ Criar a base executável do site estático e o sistema visual mínimo que susten
 - Criar a estrutura de arquivos necessária para execução local.
 - Configurar idioma `pt-BR`, viewport, título e descrição inicial.
 - Definir tokens CSS para cores, tipografia, espaçamento, raios, sombras e larguras de conteúdo.
+- Definir tokens semânticos para os temas claro e escuro, cobrindo fundo, superfícies, textos, bordas, sombras e cores de ação.
 - Criar estilos globais, normalização, foco visível e utilitário de conteúdo exclusivo para leitores de tela.
+- Aplicar o tema do sistema como preferência inicial sem causar flash visual perceptível durante o carregamento.
 - Incluir instruções curtas para executar e validar o projeto localmente.
 
 ### Critérios de aceite
@@ -33,6 +35,7 @@ Criar a base executável do site estático e o sistema visual mínimo que susten
 - A página abre localmente sem erro de console.
 - A estrutura não depende de backend.
 - Os tokens visuais são reutilizáveis e não há valores repetidos sem necessidade.
+- Os temas claro e escuro mantêm legibilidade e contraste adequado.
 - O documento possui estrutura inicial válida e linguagem `pt-BR`.
 - O foco de teclado é claramente visível.
 
@@ -46,6 +49,8 @@ Comunicar a proposta de valor imediatamente e oferecer caminhos claros para conh
 
 - Implementar cabeçalho com marca, navegação por âncoras e CTA principal.
 - Implementar menu móvel acessível, com estado aberto/fechado e fechamento após navegação.
+- Adicionar botão de alternância entre tema claro e escuro, com ícone, nome acessível e estado atual compreensível.
+- Persistir a escolha manual no navegador; na ausência de escolha, acompanhar `prefers-color-scheme` do sistema.
 - Criar hero com selo, título, texto de apoio e CTAs primária e secundária definidos em `reference.md`.
 - Criar uma representação visual do dashboard sem afirmar dados reais.
 - Garantir hierarquia adequada com um único `h1`.
@@ -54,6 +59,7 @@ Comunicar a proposta de valor imediatamente e oferecer caminhos claros para conh
 
 - Cabeçalho e hero funcionam sem rolagem horizontal entre 360 px e 1440 px.
 - O menu móvel funciona com mouse, toque e teclado e expõe seu estado às tecnologias assistivas.
+- O controle de tema funciona com mouse, toque e teclado, persiste após recarregar e não depende apenas do ícone para comunicar sua ação.
 - Os CTAs apontam para âncoras existentes.
 - A proposta de valor e a ação principal aparecem antes da primeira rolagem nas larguras usuais.
 
@@ -70,6 +76,8 @@ Apresentar a transformação oferecida pelo Portal e todos os módulos de forma 
 - Incluir todos os módulos: Secretaria, Tesouraria, patrimônio, relatórios, novos convertidos, candidatos ao batismo, apresentação de crianças com certificado, membros, pequenos grupos, cultos e eventos, EBD, site público e departamentos.
 - Usar cartões consistentes com ícone, título e descrição curta.
 - Utilizar ícones de uma única família visual ou SVGs locais consistentes.
+- Revelar os cards de forma progressiva quando entrarem na área visível, usando uma animação curta de opacidade e deslocamento sutil.
+- Implementar a revelação de modo eficiente, preferencialmente com `IntersectionObserver`, evitando listeners contínuos de rolagem.
 
 ### Critérios de aceite
 
@@ -77,6 +85,8 @@ Apresentar a transformação oferecida pelo Portal e todos os módulos de forma 
 - Os grupos são distinguíveis visualmente e compreensíveis sem interação.
 - Ícones decorativos não geram ruído para leitores de tela.
 - A grade se adapta corretamente a celular, tablet e desktop.
+- Cada card é animado no máximo uma vez e permanece visível depois da entrada.
+- Com JavaScript indisponível ou redução de movimento ativa, todos os cards permanecem visíveis sem transição obrigatória.
 
 ## Etapa 4 — Filiais, perfis e funcionamento
 
@@ -135,6 +145,7 @@ Preparar a landing page para compartilhamento, indexação e apresentação visu
 - Otimizar imagens e definir dimensões para evitar deslocamentos de layout.
 - Adicionar movimentos sutis apenas quando ajudarem a hierarquia visual.
 - Respeitar `prefers-reduced-motion`.
+- Revisar superfícies, imagens, ícones, estados interativos e sombras nos temas claro e escuro.
 - Usar dados estruturados somente com informações confirmadas.
 
 ### Critérios de aceite
@@ -143,6 +154,7 @@ Preparar a landing page para compartilhamento, indexação e apresentação visu
 - Imagens informativas têm texto alternativo adequado e imagens decorativas são ignoradas por leitores de tela.
 - A página permanece compreensível com animações desativadas.
 - Não há dependência pesada adicionada apenas para efeitos visuais.
+- A troca de tema não causa perda de contraste, conteúdo ilegível ou elementos com cores fixas incompatíveis.
 
 ## Etapa 7 — Verificação final e documentação
 
@@ -154,7 +166,7 @@ Validar o MVP completo contra os requisitos e registrar uma forma confiável de 
 
 - Testar a página nas larguras de 360 px, 768 px, 1024 px e 1440 px.
 - Verificar navegação por teclado, foco, ordem dos títulos, labels e contraste.
-- Validar links internos, menu, FAQ, formulário e ano do rodapé.
+- Validar links internos, menu, alternância de tema, animações de entrada, FAQ, formulário e ano do rodapé.
 - Executar as verificações automatizadas disponíveis no projeto.
 - Auditar desempenho, acessibilidade, boas práticas e SEO quando Lighthouse estiver disponível.
 - Documentar execução local, build quando aplicável e publicação em hospedagem estática.
@@ -164,6 +176,7 @@ Validar o MVP completo contra os requisitos e registrar uma forma confiável de 
 
 - Não há erro no console, link quebrado ou rolagem horizontal nas larguras de referência.
 - O fluxo principal funciona com teclado e em dispositivo móvel.
+- Os temas claro e escuro e a preferência de redução de movimento foram verificados.
 - Todos os critérios gerais de aceite de `reference.md` foram verificados ou registrados como pendência explícita.
 - A documentação permite que outra pessoa execute e publique o site.
 
