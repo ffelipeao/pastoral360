@@ -50,6 +50,8 @@ check(existsSync('.htaccess'), 'A configuração de segurança da hospedagem nã
 check(/rel="icon" href="assets\/images\/pastoral360-favicon\.svg" type="image\/svg\+xml"/.test(html), 'O favicon SVG do Pastoral360 não está configurado.');
 check(/class="brand-mark" src="assets\/images\/icone\.png"/.test(html), 'O novo ícone não está aplicado ao cabeçalho.');
 check(/class="footer-logo" src="assets\/images\/Logo1\.png"/.test(html), 'A nova logomarca não está aplicada ao rodapé.');
+check(/\.brand-mark\s*\{[^}]*width:\s*auto[^}]*height:\s*2\.75rem/s.test(css), 'O ícone do cabeçalho pode estar com proporção forçada.');
+check(/\.footer-logo\s*\{[^}]*height:\s*auto[^}]*object-fit:\s*contain/s.test(css), 'A logomarca do rodapé pode estar recortada ou deformada.');
 check(/:focus-visible/.test(css), 'Não há estilo de foco visível.');
 check(/prefers-reduced-motion:\s*reduce/.test(css), 'Não há tratamento para redução de movimento.');
 check(/@media \(max-width: 63\.9375rem\)/.test(css) && /@media \(max-width: 35rem\)/.test(css), 'Os breakpoints responsivos esperados não foram encontrados.');
