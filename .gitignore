@@ -1,4 +1,22 @@
+# Python
 __pycache__/
 *.py[cod]
 
-logs/
+# Orquestrador
+automation/logs/
+automation/state/
+
+# Configurações locais e credenciais
+.env
+.env.*
+!.env.example
+
+# Sistema operacional e editores
+.DS_Store
+.idea/
+.vscode/
+
+# Arquivos temporários
+*.log
+*.tmp
+*.swp
