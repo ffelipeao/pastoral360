@@ -55,6 +55,35 @@ if (isPublicHttpUrl(SITE_CONFIG.siteUrl)) {
   }
 }
 
+const revealMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const revealCards = [...document.querySelectorAll([
+  '.transformation-card',
+  '.module-card',
+  '.branch-card',
+  '.profile-card',
+  '.steps-list li',
+  '.faq-list details',
+].join(', '))];
+
+if ('IntersectionObserver' in window && !revealMotionQuery.matches && revealCards.length) {
+  revealCards.forEach((card, index) => {
+    card.classList.add('reveal-card');
+    card.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+  });
+
+  document.documentElement.classList.add('reveal-enabled');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+
+  revealCards.forEach((card) => revealObserver.observe(card));
+}
+
 function setMenuState(isOpen, { returnFocus = false } = {}) {
   if (!menuToggle || !navigation || !menuLabel) return;
   menuToggle.setAttribute('aria-expanded', String(isOpen));

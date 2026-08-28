@@ -63,6 +63,8 @@ check(/\.brand-mark\s*\{[^}]*width:\s*auto[^}]*height:\s*2\.75rem/s.test(css), '
 check(/\.footer-logo\s*\{[^}]*height:\s*auto[^}]*object-fit:\s*contain/s.test(css), 'A logomarca do rodapé pode estar recortada ou deformada.');
 check(/:focus-visible/.test(css), 'Não há estilo de foco visível.');
 check(/prefers-reduced-motion:\s*reduce/.test(css), 'Não há tratamento para redução de movimento.');
+check(/new IntersectionObserver/.test(javascript) && /revealObserver\.unobserve/.test(javascript), 'Os cards não são revelados progressivamente durante a rolagem.');
+check(/html\.reveal-enabled \.reveal-card\.is-visible/.test(css), 'Os estados visuais da animação dos cards não foram encontrados.');
 check(/@media \(max-width: 63\.9375rem\)/.test(css) && /@media \(max-width: 35rem\)/.test(css), 'Os breakpoints responsivos esperados não foram encontrados.');
 
 if (failures.length) {

@@ -210,6 +210,9 @@ a {
   to { opacity: 1; transform: translateY(0); }
 }
 
+html.reveal-enabled .reveal-card { opacity: 0; transform: translateY(1.25rem); transition: opacity 480ms ease-out var(--reveal-delay, 0ms), transform 480ms ease-out var(--reveal-delay, 0ms); }
+html.reveal-enabled .reveal-card.is-visible { opacity: 1; transform: translateY(0); }
+
 /* Problema, transformação e visão geral dos recursos. */
 .transformation,
 .resources,
@@ -393,6 +396,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html.reveal-enabled .reveal-card { opacity: 1; transform: none; }
   *, *::before, *::after {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
