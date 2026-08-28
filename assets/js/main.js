@@ -10,7 +10,7 @@ const SITE_CONFIG = Object.freeze({
   siteUrl: '',
   socialImagePath: '',
   whatsappNumber: '5521964239334',
-  whatsappMessage: 'Olá! Gostaria de conhecer o Pastoral 360 e solicitar uma demonstração.',
+  whatsappMessage: 'Olá! Gostaria de conhecer a Pastoral 360 e solicitar uma demonstração.',
   contactEmail: 'contato@pastoral360.com.br',
 });
 

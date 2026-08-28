@@ -5,7 +5,7 @@
 
 ## 1. Visão do produto
 
-O **Pastoral 360** é uma plataforma de gestão integrada para igrejas. O produto centraliza rotinas administrativas, financeiras, ministeriais e operacionais em um único ambiente, inclusive para igrejas com filiais.
+A **Pastoral 360** é uma plataforma de gestão integrada para igrejas. O produto centraliza rotinas administrativas, financeiras, ministeriais e operacionais em um único ambiente, inclusive para igrejas com filiais.
 
 **Proposta de valor:** tudo o que a igreja precisa para uma gestão 360°, na palma da mão.
 
@@ -13,7 +13,7 @@ O **Pastoral 360** é uma plataforma de gestão integrada para igrejas. O produt
 
 ## 2. Objetivos do site
 
-1. Explicar o Pastoral 360 em menos de 30 segundos.
+1. Explicar a Pastoral 360 em menos de 30 segundos.
 2. Demonstrar a amplitude dos módulos sem tornar a página cansativa.
 3. Mostrar benefícios para igrejas de diferentes tamanhos e com múltiplas filiais.
 4. Gerar pedidos de demonstração e conversas via WhatsApp.
@@ -113,7 +113,7 @@ Esses itens podem ser simulados visualmente, mas devem estar identificados como 
 Comparação visual simples:
 
 - Antes: planilhas, informações dispersas, retrabalho e pouca visibilidade.
-- Com o Pastoral 360: processos centralizados, equipes alinhadas e decisões apoiadas por relatórios.
+- Com a Pastoral 360: processos centralizados, equipes alinhadas e decisões apoiadas por relatórios.
 
 ### 6.4 Visão geral dos recursos
 
@@ -186,7 +186,7 @@ Fluxo comercial em três passos:
 
 Perguntas iniciais sugeridas:
 
-- O Pastoral 360 atende igrejas com filiais?
+- A Pastoral 360 atende igrejas com filiais?
 - É possível limitar o acesso de cada usuário?
 - Quais áreas da igreja podem ser gerenciadas?
 - O sistema pode ser acessado pelo celular?

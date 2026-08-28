@@ -54,6 +54,7 @@ check(/'Sender: ' \. CONTACT_EMAIL/.test(await readFile('contact.php', 'utf8')),
 check(/'Return-Path: ' \. CONTACT_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O retorno do SMTP Web não está configurado.');
 check(/'-f' \. CONTACT_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O remetente de envelope não está configurado na função mail.');
 check(/whatsappNumber:\s*'5521964239334'/.test(javascript), 'O WhatsApp comercial não está configurado no formato internacional esperado.');
+check(/Gostaria de conhecer a Pastoral 360 e solicitar uma demonstração/.test(javascript), 'A mensagem do WhatsApp não usa a concordância definida para a marca.');
 check(/noopener noreferrer/.test(javascript), 'Links externos em nova aba não possuem proteção contra acesso à janela de origem.');
 check(/data-floating-whatsapp(?![^>]*hidden)/.test(html), 'O botão flutuante do WhatsApp não está permanentemente visível.');
 check(/floatingWhatsapp\.href = whatsappUrl\.href/.test(javascript), 'O botão flutuante não reutiliza o WhatsApp configurado.');

@@ -83,7 +83,7 @@ if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 $replyTo = $email !== '' ? $email : CONTACT_EMAIL;
-$subjectText = 'Novo contato pelo site — Pastoral 360';
+$subjectText = 'Novo contato pelo site da Pastoral 360';
 $subject = '=?UTF-8?B?' . base64_encode($subjectText) . '?=';
 $body = implode("\r\n", [
     'Novo pedido de contato recebido pelo site.',

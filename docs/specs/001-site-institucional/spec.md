@@ -1,8 +1,8 @@
-# SPEC-001 — Site institucional do Pastoral 360
+# SPEC-001 — Site institucional da Pastoral 360
 
 ## Contexto
 
-Construir uma landing page estática, moderna, acessível e responsiva para apresentar o Pastoral 360 e converter visitantes em pedidos de demonstração. A visão completa do produto, a arquitetura de conteúdo e os requisitos gerais estão em `reference.md` nesta pasta.
+Construir uma landing page estática, moderna, acessível e responsiva para apresentar a Pastoral 360 e converter visitantes em pedidos de demonstração. A visão completa do produto, a arquitetura de conteúdo e os requisitos gerais estão em `reference.md` nesta pasta.
 
 ## Restrições globais
 
@@ -67,7 +67,7 @@ Comunicar a proposta de valor imediatamente e oferecer caminhos claros para conh
 
 ### Objetivo
 
-Apresentar a transformação oferecida pelo Pastoral 360 e todos os módulos de forma clara, agrupada e fácil de explorar.
+Apresentar a transformação oferecida pela Pastoral 360 e todos os módulos de forma clara, agrupada e fácil de explorar.
 
 ### Requisitos
 
