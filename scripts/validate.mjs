@@ -47,7 +47,7 @@ check(existsSync('contact.php'), 'O endpoint PHP de contato não foi encontrado.
 check(/whatsappNumber:\s*'5521964239334'/.test(javascript), 'O WhatsApp comercial não está configurado no formato internacional esperado.');
 check(/noopener noreferrer/.test(javascript), 'Links externos em nova aba não possuem proteção contra acesso à janela de origem.');
 check(existsSync('.htaccess'), 'A configuração de segurança da hospedagem não foi encontrada.');
-check(/rel="icon" href="assets\/images\/icone\.png"/.test(html), 'O novo ícone não está configurado como favicon.');
+check(/rel="icon" href="assets\/images\/pastoral360-favicon\.svg" type="image\/svg\+xml"/.test(html), 'O favicon SVG do Pastoral360 não está configurado.');
 check(/class="brand-mark" src="assets\/images\/icone\.png"/.test(html), 'O novo ícone não está aplicado ao cabeçalho.');
 check(/class="footer-logo" src="assets\/images\/Logo1\.png"/.test(html), 'A nova logomarca não está aplicada ao rodapé.');
 check(/:focus-visible/.test(css), 'Não há estilo de foco visível.');
