@@ -1,0 +1,60 @@
+Leia integralmente:
+
+- AGENTS.md
+- {SPEC_PATH}
+
+Analise o projeto antes de realizar alterações.
+
+Implemente exclusivamente:
+
+{STEP_TITLE}
+
+Conteúdo da etapa:
+
+{STEP_CONTENT}
+
+Regras obrigatórias:
+
+1. Não implemente requisitos pertencentes às próximas etapas.
+2. Preserve o comportamento existente da aplicação.
+3. Respeite a arquitetura e os padrões atuais do projeto.
+4. Não altere o arquivo `.env`.
+5. Não inclua credenciais ou segredos.
+6. Não execute push, merge, rebase ou reset.
+7. Crie ou atualize os testes necessários.
+8. Execute os testes diretamente relacionados à alteração.
+9. Não declare a etapa como concluída caso existam testes falhando.
+10. Não prossiga para nenhuma outra etapa.
+
+Ao finalizar, apresente:
+
+STATUS: CONCLUÍDA ou FALHOU
+
+RESUMO:
+- descrição objetiva da implementação;
+
+ARQUIVOS:
+- arquivos criados;
+- arquivos modificados;
+
+TESTES:
+- testes criados ou alterados;
+- comandos executados;
+- resultados;
+
+PENDÊNCIAS:
+- itens não implementados;
+- dependências;
+- riscos encontrados.
+
+## Mensagem para commit
+
+Inclua ao final (mesmo sem executar git commit) um bloco neste formato exato, em português do Brasil:
+
+```
+<tipo>: <resumo objetivo em uma linha>.
+
+<opcional: 1–3 bullets curtos com o essencial do que mudou>
+```
+
+Regras: seguir `.agents/rules/mensagem-commit.md`; usar feat/fix/refactor/chore/docs/test/style/perf; focar no porquê e no impacto; manter esta seção como o último bloco da resposta. Não execute o commit.

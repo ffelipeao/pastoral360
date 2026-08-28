@@ -1,0 +1,62 @@
+# Spec profile for documentation / DokuWiki manuals.
+# Used when validation.profile is "docs" or the spec path matches a docs pattern.
+
+Leia integralmente:
+
+- AGENTS.md
+- {SPEC_PATH}
+
+Analise as fontes no código (rotas, policies, views) antes de alterar páginas do manual.
+
+Implemente exclusivamente:
+
+{STEP_TITLE}
+
+Conteúdo da etapa:
+
+{STEP_CONTENT}
+
+Regras obrigatórias:
+
+1. Não implemente requisitos pertencentes às próximas etapas.
+2. Documente apenas o que existe no código; linguagem de usuário final.
+3. Agrupe subtela do mesmo menu em **tópicos** na página do item de menu (ex.: Áreas inclui detalhe/checklist/imagens); no `start.txt`, linke itens de menu, não cada subtela.
+4. Use perfis `catalogo_*` ou visitante; cruze permissões com SPEC-001 quando aplicável.
+5. Não altere código Laravel, `.env` ou credenciais, salvo pedido explícito na etapa.
+6. Não execute push, merge, rebase ou reset.
+7. Ao concluir páginas: remova aviso “em construção”, marque checklists em `docs/specs/002-manual-usuario/tasks.md` e inclua em `start.txt` o link de cada **item de menu** entregue que ainda não estiver no índice.
+8. Não declare a etapa como concluída se os critérios de aceite da etapa não forem atendidos.
+9. Não prossiga para nenhuma outra etapa.
+10. Não é obrigatório rodar `php artisan test` ou Pint nesta spec de documentação.
+
+Ao finalizar, apresente:
+
+STATUS: CONCLUÍDA ou FALHOU
+
+RESUMO:
+- descrição objetiva do que foi documentado;
+
+ARQUIVOS:
+- arquivos criados;
+- arquivos modificados;
+
+VALIDAÇÃO:
+- critérios de aceite atendidos;
+- checklists atualizados;
+
+PENDÊNCIAS:
+- itens não implementados;
+- dependências;
+- riscos encontrados.
+
+## Mensagem para commit
+
+Inclua ao final (mesmo sem executar git commit) um bloco neste formato exato, em português do Brasil:
+
+```
+docs: <resumo objetivo em uma linha>.
+
+<opcional: 1–3 bullets curtos com o essencial do que mudou>
+```
+
+Regras: seguir `.agents/rules/mensagem-commit.md`; focar no porquê e no impacto; manter esta seção como o último bloco da resposta. Não execute o commit.

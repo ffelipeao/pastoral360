@@ -1,0 +1,10 @@
+A implementação da etapa apresentou falhas.
+
+Corrija exclusivamente os erros abaixo:
+
+{ERROR_OUTPUT}
+
+Não implemente novas funcionalidades.
+Não avance para outra etapa.
+Releia a etapa na spec e atenda os critérios de aceite.
+Execute `php -l` nos arquivos PHP alterados.

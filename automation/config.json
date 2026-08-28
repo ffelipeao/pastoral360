@@ -1,0 +1,71 @@
+{
+  "codex": {
+    "command": "codex",
+    "sandbox": "workspace-write",
+    "timeout_seconds": 3600,
+    "idle_timeout_seconds": 900
+  },
+  "claude": {
+    "command": "claude",
+    "permission_mode": "bypassPermissions",
+    "output_format": "text",
+    "timeout_seconds": 3600,
+    "idle_timeout_seconds": 900
+  },
+  "validation": {
+    "default_profile": "static",
+    "stop_on_failure": true,
+    "profiles": {
+      "static": {
+        "commands": []
+      },
+      "jabot": {
+        "commands": []
+      },
+      "docs": {
+        "commands": []
+      },
+      "laravel": {
+        "commands": [
+          "php artisan test",
+          "./vendor/bin/pint --test"
+        ]
+      },
+      "none": {
+        "commands": []
+      }
+    },
+    "spec_profiles": {
+      "docs/specs/001-site-institucional/spec.md": "static"
+    }
+  },
+  "git": {
+    "require_clean_repository": false,
+    "create_commit_after_step": false,
+    "allow_push": false,
+    "branch_prefix": "feature/spec-",
+    "commit_types": {
+      "static": "feat",
+      "jabot": "feat",
+      "laravel": "feat",
+      "docs": "docs",
+      "none": "chore"
+    }
+  },
+  "execution": {
+    "agent": "codex",
+    "maximum_attempts_per_step": 2,
+    "continue_from_last_state": true,
+    "stop_between_steps": false
+  },
+  "prompts": {
+    "static": "automation/prompts/implement-step-static.txt",
+    "jabot": "automation/prompts/implement-step-jabot.txt",
+    "laravel": "automation/prompts/implement-step.txt",
+    "docs": "automation/prompts/implement-step-docs.txt",
+    "fix": "automation/prompts/fix-step.txt",
+    "fix_jabot": "automation/prompts/fix-step-jabot.txt",
+    "fix_docs": "automation/prompts/fix-step-docs.txt",
+    "fix_static": "automation/prompts/fix-step-static.txt"
+  }
+}

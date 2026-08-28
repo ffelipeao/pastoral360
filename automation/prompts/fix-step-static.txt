@@ -1,0 +1,15 @@
+Leia `{SPEC_PATH}` e `reference.md` na mesma pasta, quando existir.
+
+A tentativa de implementar `{STEP_TITLE}` não foi validada.
+
+Conteúdo da etapa:
+
+{STEP_CONTENT}
+
+Falha anterior:
+
+{ERROR_OUTPUT}
+
+Corrija exclusivamente os problemas desta etapa. Não avance para etapas posteriores, não altere `.env`, não inclua segredos e não execute operações Git destrutivas ou commit. Execute novamente as validações diretamente relacionadas.
+
+Ao finalizar, informe STATUS, RESUMO, ARQUIVOS, VALIDAÇÃO, PENDÊNCIAS e uma Mensagem para commit no mesmo formato solicitado pelo prompt de implementação.

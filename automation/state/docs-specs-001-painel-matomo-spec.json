@@ -1,0 +1,10 @@
+{
+  "spec": "docs/specs/001-painel-matomo/spec.md",
+  "completed_steps": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "failed_step": null
+}

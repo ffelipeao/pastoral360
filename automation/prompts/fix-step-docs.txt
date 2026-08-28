@@ -1,0 +1,10 @@
+A etapa de documentação apresentou falhas.
+
+Corrija exclusivamente os problemas abaixo:
+
+{ERROR_OUTPUT}
+
+Não avance para outra etapa.
+Não altere código Laravel salvo se for estritamente necessário para documentar algo real.
+Não invente funcionalidades ausentes no código.
+Releia a etapa na spec e atenda os critérios de aceite.

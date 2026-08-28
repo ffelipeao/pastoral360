@@ -1,0 +1,60 @@
+Leia integralmente:
+
+- `AGENTS.md`, se existir na raiz;
+- `{SPEC_PATH}`;
+- `reference.md` na mesma pasta da spec, quando existir.
+
+Analise a estrutura e a stack existentes antes de alterar arquivos.
+
+Implemente exclusivamente:
+
+{STEP_TITLE}
+
+Conteúdo da etapa:
+
+{STEP_CONTENT}
+
+Regras obrigatórias:
+
+1. Não implemente requisitos pertencentes às próximas etapas.
+2. Respeite a arquitetura e os padrões já presentes no projeto.
+3. Mantenha o conteúdo em português do Brasil e não invente dados comerciais.
+4. Não altere `.env`, não inclua credenciais nem segredos.
+5. Não execute push, merge, rebase, reset ou commit.
+6. Preserve HTML semântico, responsividade e acessibilidade por teclado.
+7. Crie ou atualize testes quando a stack oferecer infraestrutura de testes.
+8. Execute as validações diretamente relacionadas à alteração e registre os resultados.
+9. Não declare a etapa concluída se houver erros ou critérios de aceite pendentes.
+10. Não prossiga para nenhuma outra etapa.
+
+Ao finalizar, apresente:
+
+STATUS: CONCLUÍDA ou FALHOU
+
+RESUMO:
+- descrição objetiva da implementação;
+
+ARQUIVOS:
+- arquivos criados;
+- arquivos modificados;
+
+VALIDAÇÃO:
+- critérios de aceite verificados;
+- comandos executados e resultados;
+
+PENDÊNCIAS:
+- itens não implementados;
+- dependências;
+- riscos encontrados.
+
+## Mensagem para commit
+
+Inclua ao final, sem executar o commit, um bloco neste formato:
+
+```
+<tipo>: <resumo objetivo em uma linha>.
+
+<opcional: 1–3 bullets curtos com o essencial do que mudou>
+```
+
+Use feat/fix/refactor/chore/docs/test/style/perf e mantenha esta seção como o último bloco da resposta.

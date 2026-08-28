@@ -1,0 +1,9 @@
+A implementação da etapa apresentou falhas.
+
+Corrija exclusivamente os erros abaixo:
+
+{ERROR_OUTPUT}
+
+Não implemente novas funcionalidades.
+Não avance para outra etapa.
+Execute novamente os testes relacionados.
