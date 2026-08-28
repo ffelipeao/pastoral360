@@ -321,6 +321,7 @@ a {
 .form-field { min-width: 0; }
 .form-field label { display: block; margin-block-end: var(--space-2); color: var(--color-brand-deep); font-weight: var(--font-weight-bold); }
 .form-field input, .form-field textarea { width: 100%; padding: var(--space-3); color: var(--color-text); background: var(--color-surface); border: 0.0625rem solid #82909b; border-radius: var(--radius-sm); }
+.optional-label { color: var(--color-text-muted); font-size: var(--font-size-sm); font-weight: var(--font-weight-regular); }
 .form-field textarea { resize: vertical; }
 .form-field [aria-invalid="true"] { border: 0.125rem solid var(--color-error); }
 .field-hint, .field-error { display: block; margin-block-start: var(--space-1); font-size: var(--font-size-sm); }

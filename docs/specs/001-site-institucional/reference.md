@@ -198,7 +198,7 @@ As respostas finais dependem de validação com o responsável pelo produto.
 
 - Reforço da promessa do produto.
 - Botões para demonstração e WhatsApp.
-- Formulário: nome, igreja, cidade/UF, telefone ou e-mail e mensagem.
+- Formulário: nome, igreja, cidade/UF, telefone com WhatsApp obrigatório, e-mail opcional e mensagem.
 - Consentimento de contato e link para política de privacidade antes de ativar coleta real.
 
 ### 6.11 Rodapé

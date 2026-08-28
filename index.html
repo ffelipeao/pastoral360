@@ -328,10 +328,16 @@
               <span id="contact-city-error" class="field-error" aria-live="polite"></span>
             </div>
             <div class="form-field">
-              <label for="contact-channel">Telefone ou e-mail <span aria-hidden="true">*</span></label>
-              <input id="contact-channel" name="contato" type="text" required aria-describedby="contact-channel-hint contact-channel-error">
-              <span id="contact-channel-hint" class="field-hint">Informe um telefone com DDD ou um endereço de e-mail.</span>
-              <span id="contact-channel-error" class="field-error" aria-live="polite"></span>
+              <label for="contact-phone">Telefone com WhatsApp <span aria-hidden="true">*</span></label>
+              <input id="contact-phone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(21) 99999-9999" required aria-describedby="contact-phone-hint contact-phone-error">
+              <span id="contact-phone-hint" class="field-hint">Canal preferencial para responder ao seu contato. Informe o DDD.</span>
+              <span id="contact-phone-error" class="field-error" aria-live="polite"></span>
+            </div>
+            <div class="form-field">
+              <label for="contact-email">E-mail <span class="optional-label">(opcional)</span></label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" aria-describedby="contact-email-hint contact-email-error">
+              <span id="contact-email-hint" class="field-hint">Se informado, também poderá ser usado para responder à solicitação.</span>
+              <span id="contact-email-error" class="field-error" aria-live="polite"></span>
             </div>
             <div class="form-field form-field-full">
               <label for="contact-message">Mensagem <span aria-hidden="true">*</span></label>

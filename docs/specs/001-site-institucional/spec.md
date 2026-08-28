@@ -119,7 +119,7 @@ Responder às dúvidas principais e concluir a jornada com opções de contato t
 
 - Criar FAQ com as perguntas iniciais de `reference.md`, usando apenas respostas confirmadas.
 - Implementar CTA final para demonstração.
-- Criar formulário visual com nome, igreja, cidade/UF, telefone ou e-mail e mensagem.
+- Criar formulário com nome, igreja, cidade/UF, telefone com WhatsApp obrigatório, e-mail opcional e mensagem.
 - Validar campos obrigatórios no navegador e apresentar mensagens acessíveis.
 - Enviar o formulário pelo endpoint PHP para `contato@pastoral360.com.br`, com validação no servidor, consentimento e proteção anti-spam.
 - Adicionar link de WhatsApp apenas quando houver número configurado; até lá, usar configuração central identificável sem número fictício.

@@ -59,11 +59,12 @@ if (post_value('website') !== '') {
 $name = post_value('nome');
 $church = post_value('igreja');
 $city = post_value('cidade_uf');
-$contact = post_value('contato');
+$phone = post_value('telefone');
+$email = post_value('email');
 $message = post_value('mensagem', MAX_MESSAGE_LENGTH);
 $consent = post_value('consentimento');
 
-if ($name === '' || $church === '' || $city === '' || $contact === '' || $message === '' || $consent !== 'sim') {
+if ($name === '' || $church === '' || $city === '' || $phone === '' || $message === '' || $consent !== 'sim') {
     respond(422, 'Preencha os campos obrigatórios e autorize o contato.');
 }
 
@@ -71,7 +72,16 @@ if (mb_strlen($name) < 2 || mb_strlen($message) < 10) {
     respond(422, 'Informe um nome válido e uma mensagem com pelo menos 10 caracteres.');
 }
 
-$replyTo = filter_var($contact, FILTER_VALIDATE_EMAIL) ? $contact : CONTACT_EMAIL;
+$phoneDigits = preg_replace('/\D+/', '', $phone) ?? '';
+if (strlen($phoneDigits) < 10 || strlen($phoneDigits) > 13) {
+    respond(422, 'Informe um telefone com DDD válido.');
+}
+
+if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    respond(422, 'Informe um endereço de e-mail válido ou deixe o campo vazio.');
+}
+
+$replyTo = $email !== '' ? $email : CONTACT_EMAIL;
 $subjectText = 'Novo contato pelo site — Portal Pastoral 360';
 $subject = '=?UTF-8?B?' . base64_encode($subjectText) . '?=';
 $body = implode("\r\n", [
@@ -80,7 +90,8 @@ $body = implode("\r\n", [
     'Nome: ' . $name,
     'Igreja: ' . $church,
     'Cidade/UF: ' . $city,
-    'Contato informado: ' . $contact,
+    'Telefone/WhatsApp: ' . $phone,
+    'E-mail: ' . ($email !== '' ? $email : 'Não informado'),
     '',
     'Mensagem:',
     $message,

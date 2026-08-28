@@ -43,6 +43,9 @@ check(/action="contact\.php"/.test(html) && /method="post"/.test(html), 'O formu
 check(/fetch\(contactForm\.action/.test(javascript), 'O envio assíncrono do formulário não está configurado.');
 check(/name="website"/.test(html), 'O campo anti-spam do formulário não foi encontrado.');
 check(/name="consentimento"/.test(html), 'O consentimento para contato não foi encontrado.');
+check(/name="telefone"[^>]*type="tel"[^>]*required/.test(html), 'O telefone/WhatsApp obrigatório não está configurado.');
+check(/name="email"[^>]*type="email"/.test(html) && !/name="email"[^>]*required/.test(html), 'O e-mail separado e opcional não está configurado.');
+check(/post_value\('telefone'\)/.test(await readFile('contact.php', 'utf8')), 'O endpoint PHP não recebe o telefone separado.');
 check(existsSync('contact.php'), 'O endpoint PHP de contato não foi encontrado.');
 check(/whatsappNumber:\s*'5521964239334'/.test(javascript), 'O WhatsApp comercial não está configurado no formato internacional esperado.');
 check(/noopener noreferrer/.test(javascript), 'Links externos em nova aba não possuem proteção contra acesso à janela de origem.');

@@ -119,17 +119,21 @@ if (SITE_CONFIG.contactEmail && footerContacts) {
 
 const contactForm = document.querySelector('[data-contact-form]');
 const formStatus = document.querySelector('[data-form-status]');
-const requiredFields = contactForm ? [...contactForm.querySelectorAll('[required]')] : [];
+const validatedFields = contactForm ? [...contactForm.querySelectorAll('[required], input[type="email"]')] : [];
 
 function showFieldValidity(field) {
   const error = document.querySelector(`#${field.id}-error`);
   const isValid = field.validity.valid;
   field.setAttribute('aria-invalid', String(!isValid));
-  if (error) error.textContent = isValid ? '' : 'Preencha este campo obrigatório.';
+  if (error) {
+    if (isValid) error.textContent = '';
+    else if (field.validity.typeMismatch) error.textContent = 'Informe um endereço de e-mail válido.';
+    else error.textContent = 'Preencha este campo obrigatório.';
+  }
   return isValid;
 }
 
-requiredFields.forEach((field) => {
+validatedFields.forEach((field) => {
   field.addEventListener('invalid', (event) => {
     event.preventDefault();
     showFieldValidity(field);
@@ -140,7 +144,7 @@ requiredFields.forEach((field) => {
 
 contactForm?.addEventListener('submit', (event) => {
   event.preventDefault();
-  const firstInvalidField = requiredFields.find((field) => !showFieldValidity(field));
+  const firstInvalidField = validatedFields.find((field) => !showFieldValidity(field));
 
   if (firstInvalidField) {
     if (formStatus) formStatus.textContent = 'Revise os campos indicados. O formulário não foi enviado.';
@@ -161,7 +165,7 @@ contactForm?.addEventListener('submit', (event) => {
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.message || 'Não foi possível enviar sua mensagem.');
       contactForm.reset();
-      requiredFields.forEach((field) => {
+      validatedFields.forEach((field) => {
         field.removeAttribute('aria-invalid');
         const error = document.querySelector(`#${field.id}-error`);
         if (error) error.textContent = '';

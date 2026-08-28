@@ -71,3 +71,5 @@ hospedado. Nenhuma senha de e-mail é necessária ou deve ser colocada no códig
 O formulário valida os dados no navegador e novamente no servidor, inclui campo
 anti-spam e não usa informações do visitante nos cabeçalhos sem validação. Após
 publicar, envie uma mensagem real de teste e confira também a caixa de spam.
+O telefone com WhatsApp é o canal obrigatório e preferencial de retorno; o e-mail
+do visitante é solicitado separadamente e permanece opcional.
