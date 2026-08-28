@@ -166,3 +166,11 @@ Validar o MVP completo contra os requisitos e registrar uma forma confiável de 
 - O fluxo principal funciona com teclado e em dispositivo móvel.
 - Todos os critérios gerais de aceite de `reference.md` foram verificados ou registrados como pendência explícita.
 - A documentação permite que outra pessoa execute e publique o site.
+
+## Executar com o orquestrador
+
+Na raiz do projeto, execute:
+
+```bash
+python3 automation/orchestrator.py docs/specs/001-site-institucional/
+```

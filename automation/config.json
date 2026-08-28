@@ -40,8 +40,9 @@
     }
   },
   "git": {
-    "require_clean_repository": false,
+    "require_clean_repository": true,
     "create_commit_after_step": false,
+    "allow_commit": false,
     "allow_push": false,
     "branch_prefix": "feature/spec-",
     "commit_types": {

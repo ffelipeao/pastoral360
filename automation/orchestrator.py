@@ -111,11 +111,12 @@ def parse_steps(spec_text: str) -> dict[int, dict[str, str]]:
 
     steps: dict[int, dict[str, str]] = {}
 
-    for index, match in enumerate(matches):
+    for match in matches:
         step_number = int(match.group(1))
         title = match.group(2).strip()
         start = match.end()
-        end = matches[index + 1].start() if index + 1 < len(matches) else len(spec_text)
+        next_section = re.search(r"^##\s+", spec_text[start:], re.MULTILINE)
+        end = start + next_section.start() if next_section else len(spec_text)
         content = spec_text[start:end].strip()
 
         steps[step_number] = {
@@ -795,6 +796,14 @@ def main() -> None:
         should_commit = bool(
             config.get("git", {}).get("create_commit_after_step", False)
         )
+
+    if should_commit and not config.get("git", {}).get("allow_commit", True):
+        print(
+            "Commits automáticos estão desabilitados por git.allow_commit=false.\n"
+            "Revise a sugestão gerada e faça o commit manualmente.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     ensure_clean_repository(config)
 

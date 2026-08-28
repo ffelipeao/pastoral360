@@ -133,12 +133,13 @@ python3 automation/orchestrator.py docs/specs/001-painel-analytics/ --agent clau
 ### Commit após cada etapa
 
 ```bash
-python3 automation/orchestrator.py docs/specs/001-painel-analytics/ --commit
-python3 automation/orchestrator.py docs/specs/001-painel-analytics/ --no-commit
+python3 automation/orchestrator.py docs/specs/001-site-institucional/ --no-commit
 ```
 
-Padrão: `git.create_commit_after_step` no `config.json` (hoje: `false`).  
-**Não há push** — `allow_push` permanece desabilitado.
+Neste projeto, `AGENTS.md` proíbe commits automáticos. Por isso,
+`git.create_commit_after_step` e `git.allow_commit` permanecem `false`; o
+orquestrador apenas apresenta uma mensagem pronta para revisão e commit manual.
+Também não há push automático — `allow_push` permanece desabilitado.
 
 ## Flags
 
@@ -149,7 +150,7 @@ Padrão: `git.create_commit_after_step` no `config.json` (hoje: `false`).
 | `--from-step N` / `--to-step N` | Intervalo de etapas |
 | `--profile static\|jabot\|docs\|laravel\|none` | Sobrescreve detecção |
 | `--agent codex\|claude` | Sobrescreve o backend de agente (padrão: `execution.agent` do config, ou `codex`) |
-| `--commit` / `--no-commit` | Commit local por etapa |
+| `--commit` / `--no-commit` | Solicita ou desliga commit local; `--commit` é recusado quando `git.allow_commit` é `false` |
 
 ## Fluxo interno (por etapa)
 
@@ -179,7 +180,7 @@ Registrar nova spec:
 3. Detalhes longos em `reference.md` na mesma pasta
 4. Registrar em `docs/specs/README.md` e `config.json`
 5. `git status` limpo → `--list-steps` → executar etapa(s)
-6. Revisar diff → commit manual ou `--commit`
+6. Revisar diff e fazer o commit manualmente com a mensagem sugerida
 
 ## Exemplo deste projeto
 
