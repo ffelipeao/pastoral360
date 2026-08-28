@@ -47,7 +47,8 @@ itens abaixo em 360 px, 768 px, 1024 px e 1440 px:
 
 - [x] Mensagem principal, módulos, filiais, acessos limitados e CTAs estão na página.
 - [x] Não há métricas, clientes, depoimentos, preços ou garantias inventadas.
-- [x] O formulário é demonstrativo, não transmite dados e informa essa condição.
+- [x] O formulário envia para um endpoint PHP com validação no servidor, consentimento e alternativa por WhatsApp.
+- [ ] O envio real foi confirmado na KingHost com recebimento em `contato@pastoral360.com.br`.
 - [x] HTML possui um único `h1`, sequência de títulos e labels associados.
 - [x] Links internos, ativos locais e ano automático passaram na validação estática.
 - [x] As combinações principais de texto e fundo variam de 4,92:1 a 16,29:1;
@@ -59,10 +60,10 @@ itens abaixo em 360 px, 768 px, 1024 px e 1440 px:
 
 ## Dependências e exceções
 
-- A URL oficial, hospedagem, WhatsApp, e-mail comercial, redes sociais, política
-  de privacidade e responsável pelo tratamento de dados ainda dependem de
-  confirmação externa. O formulário real deve permanecer desativado até essas
-  definições existirem.
+- A URL oficial, redes sociais, política de privacidade e responsável pelo
+  tratamento de dados ainda dependem de confirmação externa. WhatsApp e e-mail
+  comercial já estão configurados; o recebimento do formulário ainda precisa ser
+  confirmado na KingHost.
 - A imagem social personalizada não foi configurada porque não há URL oficial nem
   ativo confirmado. O favicon local é provisório e não representa logotipo oficial.
 - O código contém um identificador de Google Analytics preexistente. Antes da

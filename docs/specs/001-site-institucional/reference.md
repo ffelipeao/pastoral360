@@ -83,7 +83,7 @@ Centralize secretaria, tesouraria, pessoas, departamentos, filiais, eventos, pat
 
 - Autenticação e área interna do sistema.
 - Banco de dados ou painel administrativo.
-- Envio real do formulário sem definição de serviço/backend.
+- Backend além do endpoint PHP exclusivo para envio do formulário de contato.
 - Pagamento, contratação e planos comerciais.
 - Blog, central de ajuda ou integração com CRM.
 - Demonstração funcional dos módulos.
@@ -248,7 +248,7 @@ As cores finais devem ser transformadas em tokens e testadas conforme WCAG.
 - O tema inicial deve considerar a preferência do sistema e escolhas manuais devem ser persistidas no navegador.
 - CTAs devem apontar para o formulário ou WhatsApp configurado.
 - O formulário deve validar campos obrigatórios e informar sucesso/erro de forma acessível.
-- Enquanto não houver backend, o formulário não deve fingir que enviou dados.
+- O endpoint PHP deve validar os dados novamente, usar remetente ativo do domínio e retornar sucesso somente após a função de envio confirmar aceitação.
 - FAQ deve funcionar por teclado e expor corretamente o estado aberto/fechado.
 - Conteúdo essencial deve permanecer disponível sem animações.
 - Cards devem aparecer progressivamente durante a rolagem, sem bloquear leitura, navegação ou indexação.
@@ -306,7 +306,7 @@ Para o protótipo inicial, usar uma implementação estática com poucos requisi
 ### Opção recomendada para o protótipo
 
 - HTML semântico, CSS organizado por tokens/componentes e JavaScript leve.
-- Sem backend nesta etapa.
+- Endpoint PHP mínimo exclusivamente para o formulário de contato.
 - Ativos locais otimizados.
 - Estrutura simples para publicação em hospedagem estática.
 
@@ -346,7 +346,7 @@ A decisão entre as opções deve ocorrer antes da implementação, evitando adi
 
 **Entregáveis:** menu móvel, alternância de tema, revelação progressiva dos cards, navegação suave, FAQ, formulário validado e links de contato configuráveis.
 
-**Critério de conclusão:** interações funcionam com mouse, toque e teclado; preferência de tema é preservada; animações respeitam redução de movimento; formulário comunica claramente que ainda é demonstrativo, se não houver envio real.
+**Critério de conclusão:** interações funcionam com mouse, toque e teclado; preferência de tema é preservada; animações respeitam redução de movimento; formulário informa de modo acessível o resultado do envio real.
 
 ### Etapa 6 — Ativos e acabamento
 
@@ -375,7 +375,7 @@ A decisão entre as opções deve ocorrer antes da implementação, evitando adi
 ### P1 — Recomendado antes da publicação
 
 - Mockup realista do dashboard.
-- Integração real do formulário.
+- Monitoramento de entrega e reforço anti-spam, se o volume justificar.
 - Política de privacidade.
 - Analytics com consentimento adequado.
 - Imagem social personalizada.

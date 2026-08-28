@@ -11,7 +11,7 @@ const SITE_CONFIG = Object.freeze({
   socialImagePath: '',
   whatsappNumber: '5521964239334',
   whatsappMessage: 'Olá! Gostaria de conhecer o Portal Pastoral 360 e solicitar uma demonstração.',
-  contactEmail: '',
+  contactEmail: 'contato@pastoral360.com.br',
 });
 
 function isPublicHttpUrl(value) {
@@ -148,7 +148,30 @@ contactForm?.addEventListener('submit', (event) => {
     return;
   }
 
-  if (formStatus) {
-    formStatus.textContent = 'Seus dados permanecem no formulário. O envio está indisponível porque este formulário é apenas demonstrativo.';
-  }
+  const submitButton = contactForm.querySelector('[type="submit"]');
+  if (submitButton) submitButton.disabled = true;
+  if (formStatus) formStatus.textContent = 'Enviando sua mensagem…';
+
+  fetch(contactForm.action, {
+    method: 'POST',
+    body: new FormData(contactForm),
+    headers: { 'X-Requested-With': 'XMLHttpRequest' },
+  })
+    .then(async (response) => {
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.message || 'Não foi possível enviar sua mensagem.');
+      contactForm.reset();
+      requiredFields.forEach((field) => {
+        field.removeAttribute('aria-invalid');
+        const error = document.querySelector(`#${field.id}-error`);
+        if (error) error.textContent = '';
+      });
+      if (formStatus) formStatus.textContent = data.message;
+    })
+    .catch((error) => {
+      if (formStatus) formStatus.textContent = `${error.message} Você também pode falar conosco pelo WhatsApp.`;
+    })
+    .finally(() => {
+      if (submitButton) submitButton.disabled = false;
+    });
 });

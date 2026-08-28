@@ -290,7 +290,7 @@
             </details>
             <details>
               <summary>Como solicito uma demonstração?</summary>
-              <p>Use o botão “Falar pelo WhatsApp” na seção de contato para conversar diretamente com a equipe do Portal Pastoral 360.</p>
+              <p>Envie o formulário nesta página ou use o botão “Falar pelo WhatsApp” para conversar diretamente com a equipe do Portal Pastoral 360.</p>
             </details>
           </div>
         </div>
@@ -301,13 +301,17 @@
           <div class="contact-content">
             <p class="section-kicker">Solicite uma demonstração</p>
             <h2 id="contact-title">Veja como organizar sua igreja em um só lugar</h2>
-            <p>Fale diretamente com nossa equipe pelo WhatsApp para conhecer o Portal e solicitar uma demonstração.</p>
-            <p class="contact-notice"><strong>Atendimento direto:</strong> ao abrir o WhatsApp, você poderá revisar a mensagem antes de enviá-la.</p>
+            <p>Envie o formulário ou fale diretamente pelo WhatsApp para conhecer o Portal e solicitar uma demonstração.</p>
+            <p class="contact-notice"><strong>Você escolhe o canal:</strong> seus dados só são enviados por e-mail ao confirmar o formulário; no WhatsApp, você poderá revisar a mensagem antes do envio.</p>
             <div class="contact-actions" data-whatsapp-container hidden></div>
           </div>
 
-          <form class="contact-form" data-contact-form novalidate>
+          <form class="contact-form" action="contact.php" method="post" data-contact-form novalidate>
             <p class="required-note"><span aria-hidden="true">*</span> Campos obrigatórios</p>
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="contact-website">Não preencha este campo</label>
+              <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form-field">
               <label for="contact-name">Nome <span aria-hidden="true">*</span></label>
               <input id="contact-name" name="nome" type="text" autocomplete="name" required aria-describedby="contact-name-error">
@@ -332,12 +336,17 @@
             </div>
             <div class="form-field form-field-full">
               <label for="contact-message">Mensagem <span aria-hidden="true">*</span></label>
-              <textarea id="contact-message" name="mensagem" rows="5" required aria-describedby="contact-message-error"></textarea>
+              <textarea id="contact-message" name="mensagem" rows="5" minlength="10" maxlength="4000" required aria-describedby="contact-message-error"></textarea>
               <span id="contact-message-error" class="field-error" aria-live="polite"></span>
             </div>
+            <div class="form-field-full form-consent">
+              <input id="contact-consent" name="consentimento" type="checkbox" value="sim" required aria-describedby="contact-consent-error">
+              <label for="contact-consent">Autorizo o uso destes dados para que o Portal Pastoral 360 responda ao meu contato. <span aria-hidden="true">*</span></label>
+              <span id="contact-consent-error" class="field-error" aria-live="polite"></span>
+            </div>
             <div class="form-field-full">
-              <button class="button button-primary" type="submit">Revisar pedido de demonstração</button>
-              <p class="form-status" data-form-status role="status" aria-live="polite">O formulário é demonstrativo e não será enviado.</p>
+              <button class="button button-primary" type="submit">Enviar pedido de demonstração</button>
+              <p class="form-status" data-form-status role="status" aria-live="polite">Os dados serão enviados com segurança para nossa equipe de contato.</p>
             </div>
           </form>
         </div>

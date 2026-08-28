@@ -39,7 +39,11 @@ check(/<meta\s+name="viewport"/i.test(html), 'A meta viewport não foi encontrad
 check(/data-current-year/.test(html) && /new Date\(\)\.getFullYear\(\)/.test(javascript), 'O ano automático do rodapé não está configurado.');
 check(/aria-controls="site-navigation"/.test(html) && /aria-expanded="false"/.test(html), 'O menu não expõe estado e controle acessíveis.');
 check(/<details>[\s\S]*?<summary>/i.test(html), 'A FAQ não usa details/summary nativos.');
-check(/data-contact-form/.test(html) && /event\.preventDefault\(\)/.test(javascript), 'O formulário demonstrativo pode não estar bloqueando o envio.');
+check(/action="contact\.php"/.test(html) && /method="post"/.test(html), 'O formulário não aponta para o endpoint PHP.');
+check(/fetch\(contactForm\.action/.test(javascript), 'O envio assíncrono do formulário não está configurado.');
+check(/name="website"/.test(html), 'O campo anti-spam do formulário não foi encontrado.');
+check(/name="consentimento"/.test(html), 'O consentimento para contato não foi encontrado.');
+check(existsSync('contact.php'), 'O endpoint PHP de contato não foi encontrado.');
 check(/whatsappNumber:\s*'5521964239334'/.test(javascript), 'O WhatsApp comercial não está configurado no formato internacional esperado.');
 check(/noopener noreferrer/.test(javascript), 'Links externos em nova aba não possuem proteção contra acesso à janela de origem.');
 check(existsSync('.htaccess'), 'A configuração de segurança da hospedagem não foi encontrada.');

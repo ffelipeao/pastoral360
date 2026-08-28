@@ -11,7 +11,7 @@ Construir uma landing page estática, moderna, acessível e responsiva para apre
 - Não simular envio bem-sucedido de formulário sem integração real.
 - Manter o conteúdo em português do Brasil.
 - Preservar acessibilidade por teclado, foco visível e redução de movimento.
-- Não adicionar backend, autenticação ou área interna do produto.
+- Não adicionar autenticação ou área interna do produto; o único processamento de servidor permitido neste MVP é o endpoint PHP de contato.
 
 ## Etapa 1 — Fundação técnica e tokens visuais
 
@@ -33,7 +33,7 @@ Criar a base executável do site estático e o sistema visual mínimo que susten
 ### Critérios de aceite
 
 - A página abre localmente sem erro de console.
-- A estrutura não depende de backend.
+- A apresentação do site não depende de backend; somente o envio do formulário requer PHP.
 - Os tokens visuais são reutilizáveis e não há valores repetidos sem necessidade.
 - Os temas claro e escuro mantêm legibilidade e contraste adequado.
 - O documento possui estrutura inicial válida e linguagem `pt-BR`.
@@ -121,7 +121,7 @@ Responder às dúvidas principais e concluir a jornada com opções de contato t
 - Implementar CTA final para demonstração.
 - Criar formulário visual com nome, igreja, cidade/UF, telefone ou e-mail e mensagem.
 - Validar campos obrigatórios no navegador e apresentar mensagens acessíveis.
-- Enquanto não houver destino real, impedir envio e explicar de forma clara que o formulário é demonstrativo.
+- Enviar o formulário pelo endpoint PHP para `contato@pastoral360.com.br`, com validação no servidor, consentimento e proteção anti-spam.
 - Adicionar link de WhatsApp apenas quando houver número configurado; até lá, usar configuração central identificável sem número fictício.
 - Criar rodapé com marca, navegação, contatos configurados e ano automático.
 
@@ -131,6 +131,7 @@ Responder às dúvidas principais e concluir a jornada com opções de contato t
 - Estados de erro são associados aos respectivos campos e não dependem apenas de cor.
 - Nenhum contato, rede social ou política inexistente é apresentado como real.
 - O formulário não perde dados nem informa sucesso falso.
+- Falhas do servidor mantêm o WhatsApp como alternativa visível de contato.
 
 ## Etapa 6 — SEO, ativos e acabamento visual
 
