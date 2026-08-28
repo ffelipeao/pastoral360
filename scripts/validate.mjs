@@ -52,6 +52,9 @@ check(/const CONTACT_COPY_EMAIL = 'feliperj629@gmail\.com'/.test(await readFile(
 check(/'Cc: ' \. CONTACT_COPY_EMAIL/.test(await readFile('contact.php', 'utf8')), 'O cabeçalho de cópia não está configurado no envio PHP.');
 check(/whatsappNumber:\s*'5521964239334'/.test(javascript), 'O WhatsApp comercial não está configurado no formato internacional esperado.');
 check(/noopener noreferrer/.test(javascript), 'Links externos em nova aba não possuem proteção contra acesso à janela de origem.');
+check(/data-floating-whatsapp/.test(html), 'O botão flutuante do WhatsApp não foi encontrado.');
+check(/floatingWhatsapp\.href = whatsappUrl\.href/.test(javascript), 'O botão flutuante não reutiliza o WhatsApp configurado.');
+check(/\.floating-whatsapp\s*\{[^}]*position:\s*fixed/s.test(css), 'O botão do WhatsApp não está fixo na página.');
 check(existsSync('.htaccess'), 'A configuração de segurança da hospedagem não foi encontrada.');
 check(/rel="icon" href="assets\/images\/pastoral360-favicon\.svg" type="image\/svg\+xml"/.test(html), 'O favicon SVG do Pastoral360 não está configurado.');
 check(/class="brand-mark" src="assets\/images\/icone\.png"/.test(html), 'O novo ícone não está aplicado ao cabeçalho.');

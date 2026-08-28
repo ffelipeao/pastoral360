@@ -81,12 +81,16 @@ const whatsappNumber = SITE_CONFIG.whatsappNumber.replace(/\D/g, '');
 const whatsappContainer = document.querySelector('[data-whatsapp-container]');
 const footerContacts = document.querySelector('[data-footer-contacts]');
 const contactFallback = document.querySelector('[data-contact-fallback]');
-if (whatsappNumber && whatsappContainer) {
+const floatingWhatsapp = document.querySelector('[data-floating-whatsapp]');
+const whatsappMessage = SITE_CONFIG.whatsappMessage.trim();
+const whatsappUrl = whatsappNumber ? new URL(`https://wa.me/${whatsappNumber}`) : null;
+if (whatsappUrl) {
+  if (whatsappMessage) whatsappUrl.searchParams.set('text', whatsappMessage);
+}
+
+if (whatsappUrl && whatsappContainer) {
   const whatsappLink = document.createElement('a');
   whatsappLink.className = 'button button-secondary';
-  const whatsappMessage = SITE_CONFIG.whatsappMessage.trim();
-  const whatsappUrl = new URL(`https://wa.me/${whatsappNumber}`);
-  if (whatsappMessage) whatsappUrl.searchParams.set('text', whatsappMessage);
   whatsappLink.href = whatsappUrl.href;
   whatsappLink.target = '_blank';
   whatsappLink.rel = 'noopener noreferrer';
@@ -95,10 +99,15 @@ if (whatsappNumber && whatsappContainer) {
   whatsappContainer.hidden = false;
 }
 
-if (whatsappNumber && footerContacts) {
+if (whatsappUrl && floatingWhatsapp) {
+  floatingWhatsapp.href = whatsappUrl.href;
+  floatingWhatsapp.hidden = false;
+}
+
+if (whatsappUrl && footerContacts) {
   const item = document.createElement('li');
   const link = document.createElement('a');
-  link.href = `https://wa.me/${whatsappNumber}`;
+  link.href = whatsappUrl.href;
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
   link.textContent = 'WhatsApp: (21) 96423-9334';
