@@ -11,7 +11,6 @@ const SITE_CONFIG = Object.freeze({
   socialImagePath: '',
   whatsappNumber: '5521964239334',
   whatsappMessage: 'Olá! Gostaria de conhecer a Pastoral 360 e solicitar uma demonstração.',
-  contactEmail: 'contato@pastoral360.com.br',
 });
 
 function isPublicHttpUrl(value) {
@@ -107,7 +106,7 @@ const currentYear = document.querySelector('[data-current-year]');
 if (currentYear) currentYear.textContent = String(new Date().getFullYear());
 
 const whatsappNumber = SITE_CONFIG.whatsappNumber.replace(/\D/g, '');
-const whatsappContainer = document.querySelector('[data-whatsapp-container]');
+const primaryWhatsapp = document.querySelector('[data-whatsapp-primary]');
 const footerContacts = document.querySelector('[data-footer-contacts]');
 const contactFallback = document.querySelector('[data-contact-fallback]');
 const floatingWhatsapp = document.querySelector('[data-floating-whatsapp]');
@@ -117,15 +116,8 @@ if (whatsappUrl) {
   if (whatsappMessage) whatsappUrl.searchParams.set('text', whatsappMessage);
 }
 
-if (whatsappUrl && whatsappContainer) {
-  const whatsappLink = document.createElement('a');
-  whatsappLink.className = 'button button-secondary';
-  whatsappLink.href = whatsappUrl.href;
-  whatsappLink.target = '_blank';
-  whatsappLink.rel = 'noopener noreferrer';
-  whatsappLink.textContent = 'Falar pelo WhatsApp';
-  whatsappContainer.append(whatsappLink);
-  whatsappContainer.hidden = false;
+if (whatsappUrl && primaryWhatsapp) {
+  primaryWhatsapp.href = whatsappUrl.href;
 }
 
 if (whatsappUrl && floatingWhatsapp) {
@@ -143,76 +135,3 @@ if (whatsappUrl && footerContacts) {
   footerContacts.append(item);
   if (contactFallback) contactFallback.hidden = true;
 }
-
-if (SITE_CONFIG.contactEmail && footerContacts) {
-  const item = document.createElement('li');
-  const link = document.createElement('a');
-  link.href = `mailto:${SITE_CONFIG.contactEmail}`;
-  link.textContent = SITE_CONFIG.contactEmail;
-  item.append(link);
-  footerContacts.append(item);
-  if (contactFallback) contactFallback.hidden = true;
-}
-
-const contactForm = document.querySelector('[data-contact-form]');
-const formStatus = document.querySelector('[data-form-status]');
-const validatedFields = contactForm ? [...contactForm.querySelectorAll('[required], input[type="email"]')] : [];
-
-function showFieldValidity(field) {
-  const error = document.querySelector(`#${field.id}-error`);
-  const isValid = field.validity.valid;
-  field.setAttribute('aria-invalid', String(!isValid));
-  if (error) {
-    if (isValid) error.textContent = '';
-    else if (field.validity.typeMismatch) error.textContent = 'Informe um endereço de e-mail válido.';
-    else error.textContent = 'Preencha este campo obrigatório.';
-  }
-  return isValid;
-}
-
-validatedFields.forEach((field) => {
-  field.addEventListener('invalid', (event) => {
-    event.preventDefault();
-    showFieldValidity(field);
-  });
-  field.addEventListener('input', () => showFieldValidity(field));
-  field.addEventListener('blur', () => showFieldValidity(field));
-});
-
-contactForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const firstInvalidField = validatedFields.find((field) => !showFieldValidity(field));
-
-  if (firstInvalidField) {
-    if (formStatus) formStatus.textContent = 'Revise os campos indicados. O formulário não foi enviado.';
-    firstInvalidField.focus();
-    return;
-  }
-
-  const submitButton = contactForm.querySelector('[type="submit"]');
-  if (submitButton) submitButton.disabled = true;
-  if (formStatus) formStatus.textContent = 'Enviando sua mensagem…';
-
-  fetch(contactForm.action, {
-    method: 'POST',
-    body: new FormData(contactForm),
-    headers: { 'X-Requested-With': 'XMLHttpRequest' },
-  })
-    .then(async (response) => {
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.message || 'Não foi possível enviar sua mensagem.');
-      contactForm.reset();
-      validatedFields.forEach((field) => {
-        field.removeAttribute('aria-invalid');
-        const error = document.querySelector(`#${field.id}-error`);
-        if (error) error.textContent = '';
-      });
-      if (formStatus) formStatus.textContent = data.message;
-    })
-    .catch((error) => {
-      if (formStatus) formStatus.textContent = `${error.message} Como alternativa, fale conosco pelo WhatsApp.`;
-    })
-    .finally(() => {
-      if (submitButton) submitButton.disabled = false;
-    });
-});

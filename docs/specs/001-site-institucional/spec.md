@@ -8,7 +8,7 @@ Construir uma landing page estática, moderna, acessível e responsiva para apre
 
 - Implementar apenas informações confirmadas em `reference.md`.
 - Não inventar clientes, depoimentos, métricas, preços ou garantias.
-- Não simular envio bem-sucedido de formulário sem integração real.
+- Manter o WhatsApp como único canal de contato do MVP.
 - Manter o conteúdo em português do Brasil.
 - Preservar acessibilidade por teclado, foco visível e redução de movimento.
 - Não adicionar autenticação ou área interna do produto; o único processamento de servidor permitido neste MVP é o endpoint PHP de contato.
@@ -33,7 +33,7 @@ Criar a base executável do site estático e o sistema visual mínimo que susten
 ### Critérios de aceite
 
 - A página abre localmente sem erro de console.
-- A apresentação do site não depende de backend; somente o envio do formulário requer PHP.
+- A página não depende de backend.
 - Os tokens visuais são reutilizáveis e não há valores repetidos sem necessidade.
 - Os temas claro e escuro mantêm legibilidade e contraste adequado.
 - O documento possui estrutura inicial válida e linguagem `pt-BR`.
@@ -119,19 +119,15 @@ Responder às dúvidas principais e concluir a jornada com opções de contato t
 
 - Criar FAQ com as perguntas iniciais de `reference.md`, usando apenas respostas confirmadas.
 - Implementar CTA final para demonstração.
-- Criar formulário com nome, igreja, cidade/UF, telefone com WhatsApp obrigatório, e-mail opcional e mensagem.
-- Validar campos obrigatórios no navegador e apresentar mensagens acessíveis.
-- Enviar o formulário pelo endpoint PHP para `contato@pastoral360.com.br`, com validação no servidor, consentimento e proteção anti-spam.
-- Adicionar link de WhatsApp apenas quando houver número configurado; até lá, usar configuração central identificável sem número fictício.
+- Criar uma chamada principal para o WhatsApp com número e mensagem confirmados.
+- Manter um botão flutuante do WhatsApp disponível durante toda a navegação.
 - Criar rodapé com marca, navegação, contatos configurados e ano automático.
 
 ### Critérios de aceite
 
-- FAQ e formulário são totalmente operáveis por teclado.
-- Estados de erro são associados aos respectivos campos e não dependem apenas de cor.
+- FAQ e botões do WhatsApp são totalmente operáveis por teclado.
 - Nenhum contato, rede social ou política inexistente é apresentado como real.
-- O formulário não perde dados nem informa sucesso falso.
-- Falhas do servidor mantêm o WhatsApp como alternativa visível de contato.
+- Não há formulário nem coleta de dados no site.
 
 ## Etapa 6 — SEO, ativos e acabamento visual
 
@@ -167,7 +163,7 @@ Validar o MVP completo contra os requisitos e registrar uma forma confiável de 
 
 - Testar a página nas larguras de 360 px, 768 px, 1024 px e 1440 px.
 - Verificar navegação por teclado, foco, ordem dos títulos, labels e contraste.
-- Validar links internos, menu, alternância de tema, animações de entrada, FAQ, formulário e ano do rodapé.
+- Validar links internos, menu, alternância de tema, animações de entrada, FAQ, WhatsApp e ano do rodapé.
 - Executar as verificações automatizadas disponíveis no projeto.
 - Auditar desempenho, acessibilidade, boas práticas e SEO quando Lighthouse estiver disponível.
 - Documentar execução local, build quando aplicável e publicação em hospedagem estática.

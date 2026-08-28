@@ -74,7 +74,7 @@ Centralize secretaria, tesouraria, pessoas, departamentos, filiais, eventos, pat
 - Apresentação dos módulos, públicos e benefícios.
 - Seção sobre gestão de igrejas filiais.
 - Chamadas para pedido de demonstração.
-- Formulário visual de contato com validação no navegador.
+- Chamada direta para contato pelo WhatsApp.
 - Links configuráveis para WhatsApp e redes sociais.
 - Metadados básicos para SEO e compartilhamento social.
 - Boas práticas básicas de acessibilidade e desempenho.
@@ -83,7 +83,7 @@ Centralize secretaria, tesouraria, pessoas, departamentos, filiais, eventos, pat
 
 - Autenticação e área interna do sistema.
 - Banco de dados ou painel administrativo.
-- Backend além do endpoint PHP exclusivo para envio do formulário de contato.
+- Qualquer backend ou processamento de formulário.
 - Pagamento, contratação e planos comerciais.
 - Blog, central de ajuda ou integração com CRM.
 - Demonstração funcional dos módulos.
@@ -198,7 +198,7 @@ As respostas finais dependem de validação com o responsável pelo produto.
 
 - Reforço da promessa do produto.
 - Botões para demonstração e WhatsApp.
-- Formulário: nome, igreja, cidade/UF, telefone com WhatsApp obrigatório, e-mail opcional e mensagem.
+- Botão principal e botão flutuante para contato pelo WhatsApp.
 - Consentimento de contato e link para política de privacidade antes de ativar coleta real.
 
 ### 6.11 Rodapé
@@ -246,9 +246,7 @@ As cores finais devem ser transformadas em tokens e testadas conforme WCAG.
 - O menu móvel deve abrir, fechar e manter navegação por teclado.
 - O cabeçalho deve oferecer um botão acessível para alternar entre os temas claro e escuro.
 - O tema inicial deve considerar a preferência do sistema e escolhas manuais devem ser persistidas no navegador.
-- CTAs devem apontar para o formulário ou WhatsApp configurado.
-- O formulário deve validar campos obrigatórios e informar sucesso/erro de forma acessível.
-- O endpoint PHP deve validar os dados novamente, usar remetente ativo do domínio e retornar sucesso somente após a função de envio confirmar aceitação.
+- CTAs devem apontar para o WhatsApp configurado.
 - FAQ deve funcionar por teclado e expor corretamente o estado aberto/fechado.
 - Conteúdo essencial deve permanecer disponível sem animações.
 - Cards devem aparecer progressivamente durante a rolagem, sem bloquear leitura, navegação ou indexação.
@@ -267,7 +265,6 @@ As cores finais devem ser transformadas em tokens e testadas conforme WCAG.
 - Contraste mínimo compatível com WCAG 2.2 AA.
 - Navegação completa por teclado e foco visível.
 - Textos alternativos para imagens informativas.
-- Labels associados aos campos do formulário.
 - Respeito às preferências de redução de movimento.
 
 ### Desempenho
@@ -291,13 +288,13 @@ Antes da publicação, confirmar:
 
 - Logotipo e identidade visual existentes.
 - URL oficial e hospedagem.
-- Número de WhatsApp e e-mail comercial.
+- Número de WhatsApp comercial.
 - Redes sociais.
 - Capturas reais ou conceito visual do sistema.
 - Lista exata de funcionalidades já disponíveis e planejadas.
 - Modelo comercial: assinatura, implantação, teste ou demonstração.
 - Depoimentos, quantidade de clientes e métricas reais.
-- Política de privacidade, responsável pelo tratamento de dados e fluxo do formulário.
+- Política de privacidade e responsável pelo tratamento de dados, se outros recursos de coleta forem adicionados.
 
 ## 11. Estratégia técnica sugerida
 
@@ -306,7 +303,7 @@ Para o protótipo inicial, usar uma implementação estática com poucos requisi
 ### Opção recomendada para o protótipo
 
 - HTML semântico, CSS organizado por tokens/componentes e JavaScript leve.
-- Endpoint PHP mínimo exclusivamente para o formulário de contato.
+- Sem backend nesta etapa.
 - Ativos locais otimizados.
 - Estrutura simples para publicação em hospedagem estática.
 
@@ -344,9 +341,9 @@ A decisão entre as opções deve ocorrer antes da implementação, evitando adi
 
 ### Etapa 5 — Interações e conversão
 
-**Entregáveis:** menu móvel, alternância de tema, revelação progressiva dos cards, navegação suave, FAQ, formulário validado e links de contato configuráveis.
+**Entregáveis:** menu móvel, alternância de tema, revelação progressiva dos cards, navegação suave, FAQ e links de WhatsApp configurados.
 
-**Critério de conclusão:** interações funcionam com mouse, toque e teclado; preferência de tema é preservada; animações respeitam redução de movimento; formulário informa de modo acessível o resultado do envio real.
+**Critério de conclusão:** interações funcionam com mouse, toque e teclado; preferência de tema é preservada; animações respeitam redução de movimento; WhatsApp abre com número e mensagem corretos.
 
 ### Etapa 6 — Ativos e acabamento
 
@@ -397,7 +394,7 @@ A decisão entre as opções deve ocorrer antes da implementação, evitando adi
 - O layout é utilizável em celular, tablet e desktop.
 - A página pode ser navegada por teclado e tem foco visível.
 - Não há métricas, clientes, depoimentos ou garantias inventadas.
-- O formulário não coleta dados sem destino e política definidos.
+- O site não coleta dados diretamente.
 - Links, metadados, imagens e textos foram revisados antes da publicação.
 
 ## 15. Definição de pronto para cada tarefa

@@ -289,7 +289,7 @@
             </details>
             <details>
               <summary>Como solicito uma demonstração?</summary>
-              <p>Envie o formulário nesta página ou use o botão “Falar pelo WhatsApp” para conversar diretamente com a equipe da Pastoral 360.</p>
+              <p>Use o botão “Falar pelo WhatsApp” para conversar diretamente com a equipe da Pastoral 360.</p>
             </details>
           </div>
         </div>
@@ -300,60 +300,12 @@
           <div class="contact-content">
             <p class="section-kicker">Solicite uma demonstração</p>
             <h2 id="contact-title">Veja como organizar sua igreja em um só lugar</h2>
-            <p>Envie o formulário ou fale diretamente pelo WhatsApp para conhecer a Pastoral 360 e solicitar uma demonstração.</p>
-            <p class="contact-notice"><strong>Você escolhe o canal:</strong> seus dados só são enviados por e-mail ao confirmar o formulário; no WhatsApp, você poderá revisar a mensagem antes do envio.</p>
-            <div class="contact-actions" data-whatsapp-container hidden></div>
+            <p>Fale diretamente pelo WhatsApp para conhecer a Pastoral 360 e solicitar uma demonstração.</p>
+            <p class="contact-notice"><strong>Atendimento direto:</strong> ao abrir o WhatsApp, você poderá revisar a mensagem antes de enviá-la.</p>
+            <div class="contact-actions">
+              <a class="button button-secondary" href="https://wa.me/5521964239334" target="_blank" rel="noopener noreferrer" data-whatsapp-primary>Falar pelo WhatsApp</a>
+            </div>
           </div>
-
-          <form class="contact-form" action="contact.php" method="post" data-contact-form novalidate>
-            <p class="required-note"><span aria-hidden="true">*</span> Campos obrigatórios</p>
-            <div class="form-honeypot" aria-hidden="true">
-              <label for="contact-website">Não preencha este campo</label>
-              <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
-            </div>
-            <div class="form-field">
-              <label for="contact-name">Nome <span aria-hidden="true">*</span></label>
-              <input id="contact-name" name="nome" type="text" autocomplete="name" required aria-describedby="contact-name-error">
-              <span id="contact-name-error" class="field-error" aria-live="polite"></span>
-            </div>
-            <div class="form-field">
-              <label for="contact-church">Igreja <span aria-hidden="true">*</span></label>
-              <input id="contact-church" name="igreja" type="text" autocomplete="organization" required aria-describedby="contact-church-error">
-              <span id="contact-church-error" class="field-error" aria-live="polite"></span>
-            </div>
-            <div class="form-field">
-              <label for="contact-city">Cidade/UF <span aria-hidden="true">*</span></label>
-              <input id="contact-city" name="cidade_uf" type="text" autocomplete="address-level2" required aria-describedby="contact-city-hint contact-city-error">
-              <span id="contact-city-hint" class="field-hint">Exemplo de formato: cidade/UF.</span>
-              <span id="contact-city-error" class="field-error" aria-live="polite"></span>
-            </div>
-            <div class="form-field">
-              <label for="contact-phone">Telefone com WhatsApp <span aria-hidden="true">*</span></label>
-              <input id="contact-phone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(21) 99999-9999" required aria-describedby="contact-phone-hint contact-phone-error">
-              <span id="contact-phone-hint" class="field-hint">Canal preferencial para responder ao seu contato. Informe o DDD.</span>
-              <span id="contact-phone-error" class="field-error" aria-live="polite"></span>
-            </div>
-            <div class="form-field">
-              <label for="contact-email">E-mail <span class="optional-label">(opcional)</span></label>
-              <input id="contact-email" name="email" type="email" autocomplete="email" aria-describedby="contact-email-hint contact-email-error">
-              <span id="contact-email-hint" class="field-hint">Se informado, também poderá ser usado para responder à solicitação.</span>
-              <span id="contact-email-error" class="field-error" aria-live="polite"></span>
-            </div>
-            <div class="form-field form-field-full">
-              <label for="contact-message">Mensagem <span aria-hidden="true">*</span></label>
-              <textarea id="contact-message" name="mensagem" rows="5" minlength="10" maxlength="4000" required aria-describedby="contact-message-error"></textarea>
-              <span id="contact-message-error" class="field-error" aria-live="polite"></span>
-            </div>
-            <div class="form-field-full form-consent">
-              <input id="contact-consent" name="consentimento" type="checkbox" value="sim" required aria-describedby="contact-consent-error">
-              <label for="contact-consent">Autorizo o uso destes dados para que a Pastoral 360 responda ao meu contato. <span aria-hidden="true">*</span></label>
-              <span id="contact-consent-error" class="field-error" aria-live="polite"></span>
-            </div>
-            <div class="form-field-full">
-              <button class="button button-primary" type="submit">Enviar pedido de demonstração</button>
-              <p class="form-status" data-form-status role="status" aria-live="polite">Os dados serão enviados com segurança para nossa equipe de contato.</p>
-            </div>
-          </form>
         </div>
       </section>
     </main>

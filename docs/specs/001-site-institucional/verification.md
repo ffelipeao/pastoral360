@@ -15,7 +15,7 @@ tidy -errors -quiet index.html
 ```
 
 O primeiro comando verifica IDs duplicados, destinos das âncoras, ordem dos
-títulos, labels dos campos, ativos locais e os ganchos de menu, FAQ, formulário,
+títulos, ativos locais e os ganchos de menu, FAQ, WhatsApp,
 ano automático, foco e redução de movimento. O `tidy` é complementar e pode
 retornar código 1 ao emitir avisos sobre elementos vazios usados exclusivamente
 na ilustração CSS; revise a saída para distinguir esses avisos de erros reais.
@@ -35,10 +35,8 @@ itens abaixo em 360 px, 768 px, 1024 px e 1440 px:
 - abrir e fechar o menu com Enter e Espaço, seguir cada link e fechar com Esc;
 - percorrer a página com Tab e Shift+Tab, verificando foco visível e ordem lógica;
 - abrir e fechar todas as perguntas da FAQ pelo teclado;
-- enviar o formulário vazio e confirmar foco no primeiro campo inválido, texto
-  de erro associado e ausência de envio;
-- preencher os campos, acionar **Revisar pedido de demonstração** e confirmar que
-  os dados permanecem na tela e que nenhuma mensagem de sucesso é exibida;
+- acionar a chamada principal e o botão flutuante do WhatsApp e confirmar número
+  e mensagem pré-preenchida;
 - conferir visualmente títulos, labels, contraste, áreas de toque e o ano atual
   no rodapé;
 - testar todos os links de cabeçalho, CTAs e rodapé.
@@ -47,8 +45,7 @@ itens abaixo em 360 px, 768 px, 1024 px e 1440 px:
 
 - [x] Mensagem principal, módulos, filiais, acessos limitados e CTAs estão na página.
 - [x] Não há métricas, clientes, depoimentos, preços ou garantias inventadas.
-- [x] O formulário envia para um endpoint PHP com validação no servidor, consentimento e alternativa por WhatsApp.
-- [ ] O envio real foi confirmado na KingHost com recebimento em `contato@pastoral360.com.br`.
+- [x] O WhatsApp é o único canal de contato e permanece disponível durante a navegação.
 - [x] HTML possui um único `h1`, sequência de títulos e labels associados.
 - [x] Links internos, ativos locais e ano automático passaram na validação estática.
 - [x] As combinações principais de texto e fundo variam de 4,92:1 a 16,29:1;
@@ -61,9 +58,8 @@ itens abaixo em 360 px, 768 px, 1024 px e 1440 px:
 ## Dependências e exceções
 
 - A URL oficial, redes sociais, política de privacidade e responsável pelo
-  tratamento de dados ainda dependem de confirmação externa. WhatsApp e e-mail
-  comercial já estão configurados; o recebimento do formulário ainda precisa ser
-  confirmado na KingHost.
+  tratamento de dados ainda dependem de confirmação externa. O WhatsApp
+  comercial já está configurado.
 - A imagem social personalizada não foi configurada porque não há URL oficial nem
   ativo confirmado. O favicon local é provisório e não representa logotipo oficial.
 - O código contém um identificador de Google Analytics preexistente. Antes da

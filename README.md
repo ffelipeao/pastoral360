@@ -1,7 +1,7 @@
 # Pastoral 360
 
-Site institucional construído com HTML, CSS e JavaScript, com um endpoint PHP
-pequeno para envio do formulário de contato.
+Site institucional estático construído com HTML, CSS e JavaScript, com contato
+direto pelo WhatsApp.
 
 ## Executar localmente
 
@@ -21,10 +21,9 @@ da hierarquia de títulos, dos ativos e dos ganchos de interação:
 ```bash
 node scripts/validate.mjs
 node --check assets/js/main.js
-php -l contact.php
 ```
 
-Não há etapa de build: os arquivos PHP/HTML da raiz e a pasta `assets/` são o
+Não há etapa de build: o HTML da raiz e a pasta `assets/` são o
 artefato publicável. O checklist completo, incluindo os testes manuais, está em
 [`docs/specs/001-site-institucional/verification.md`](docs/specs/001-site-institucional/verification.md).
 
@@ -33,7 +32,7 @@ artefato publicável. O checklist completo, incluindo os testes manuais, está e
 1. Configure em `assets/js/main.js` apenas os dados comerciais confirmados em
    `SITE_CONFIG` (URL oficial, imagem social e canais de contato).
 2. Execute os comandos da seção **Validar** e conclua o checklist manual.
-3. Publique `index.html`, `contact.php`, `.htaccess` e a pasta `assets/`, preservando a
+3. Publique `index.html`, `.htaccess` e a pasta `assets/`, preservando a
    estrutura de caminhos e garantindo que arquivos iniciados por ponto sejam
    incluídos no deploy.
 4. Configure o diretório publicado como raiz do site, habilite HTTPS na
@@ -61,16 +60,8 @@ publicação definitiva, valide a necessidade de consentimento e de uma polític
 privacidade conforme o fluxo de dados adotado e a LGPD. Senhas, tokens e acessos
 da KingHost nunca devem ser adicionados ao repositório.
 
-## Envio do formulário
+## Contato
 
-O endpoint `contact.php` usa o SMTP Web da hospedagem por meio da função `mail()`
-e envia as mensagens para `contato@pastoral360.com.br`, com cópia para
-`feliperj629@gmail.com`. Conforme a política da KingHost, a conta usada como
-remetente precisa existir, estar ativa e pertencer ao domínio hospedado. Nenhuma
-senha de e-mail é necessária ou deve ser colocada no código.
-
-O formulário valida os dados no navegador e novamente no servidor, inclui campo
-anti-spam e não usa informações do visitante nos cabeçalhos sem validação. Após
-publicar, envie uma mensagem real de teste e confira também a caixa de spam.
-O telefone com WhatsApp é o canal obrigatório e preferencial de retorno; o e-mail
-do visitante é solicitado separadamente e permanece opcional.
+O WhatsApp é o único canal de conversão da página. O número e a mensagem inicial
+ficam centralizados em `SITE_CONFIG`, e o botão flutuante permanece disponível
+durante toda a navegação.
