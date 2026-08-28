@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Portal Pastoral 360">
+  <rect width="64" height="64" rx="14" fill="#123b5d"/>
+  <path d="M32 10 51 21v22L32 54 13 43V21Z" fill="none" stroke="#70d8c9" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M22 25h20v17H22Zm10 0v17" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+</svg>
