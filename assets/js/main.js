@@ -135,7 +135,7 @@ if (whatsappNumber) {
     const planWhatsappUrl = new URL(`https://wa.me/${whatsappNumber}`);
     planWhatsappUrl.searchParams.set(
       'text',
-      `Olá! Gostaria de conhecer e contratar o plano ${planName} da Pastoral 360.`,
+      `Olá! Tenho interesse no plano ${planName} da Pastoral 360 e gostaria de saber mais.`,
     );
     link.href = planWhatsappUrl.href;
   });
