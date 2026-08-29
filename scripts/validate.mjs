@@ -62,7 +62,8 @@ check(/id="planos"/.test(html) && /href="#planos"/.test(html), 'A seção de pla
 check(/Por tempo limitado/.test(html) && /Experimente grátis por 30 dias/.test(html), 'O limite de 30 dias do período grátis não está explícito.');
 check(['49,90', '79,90', '129,90', '199,90'].every((price) => html.includes(price)), 'Os preços das modalidades comerciais não correspondem à especificação.');
 check((html.match(/data-whatsapp-plan="[^"]+"/g) || []).length === 4, 'Todos os planos devem possuir uma chamada específica para o WhatsApp.');
-check(/planWhatsappLinks\.forEach/.test(javascript) && /Tenho interesse no plano \$\{planName\}/.test(javascript), 'A mensagem do WhatsApp não identifica o interesse pelo plano escolhido.');
+check((html.match(/data-whatsapp-price="[^"]+"/g) || []).length === 4, 'Todos os planos devem informar o preço usado na mensagem do WhatsApp.');
+check(/planWhatsappLinks\.forEach/.test(javascript) && /Tenho interesse no plano \$\{planName\} por \$\{planPrice\}/.test(javascript), 'A mensagem do WhatsApp não identifica o plano e o preço escolhidos.');
 
 if (failures.length) {
   console.error('Validação falhou:');

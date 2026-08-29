@@ -130,12 +130,13 @@ if (whatsappUrl && floatingWhatsapp) {
 if (whatsappNumber) {
   planWhatsappLinks.forEach((link) => {
     const planName = link.dataset.whatsappPlan?.trim();
-    if (!planName) return;
+    const planPrice = link.dataset.whatsappPrice?.trim();
+    if (!planName || !planPrice) return;
 
     const planWhatsappUrl = new URL(`https://wa.me/${whatsappNumber}`);
     planWhatsappUrl.searchParams.set(
       'text',
-      `Olá! Tenho interesse no plano ${planName} da Pastoral 360 e gostaria de saber mais.`,
+      `Olá! Tenho interesse no plano ${planName} por ${planPrice} da Pastoral 360 e gostaria de saber mais.`,
     );
     link.href = planWhatsappUrl.href;
   });
