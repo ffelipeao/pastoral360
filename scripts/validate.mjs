@@ -59,8 +59,10 @@ check(/new IntersectionObserver/.test(javascript) && /revealObserver\.unobserve/
 check(/html\.reveal-enabled \.reveal-card\.is-visible/.test(css), 'Os estados visuais da animação dos cards não foram encontrados.');
 check(/@media \(max-width: 63\.9375rem\)/.test(css) && /@media \(max-width: 35rem\)/.test(css), 'Os breakpoints responsivos esperados não foram encontrados.');
 check(/id="planos"/.test(html) && /href="#planos"/.test(html), 'A seção de planos não está disponível na navegação.');
-check(/Experimente grátis por 30 dias/.test(html) && /A gratuidade termina após 30 dias/.test(html), 'O limite de 30 dias do período grátis não está explícito.');
+check(/Por tempo limitado/.test(html) && /Experimente grátis por 30 dias/.test(html), 'O limite de 30 dias do período grátis não está explícito.');
 check(['49,90', '79,90', '129,90', '199,90'].every((price) => html.includes(price)), 'Os preços das modalidades comerciais não correspondem à especificação.');
+check((html.match(/data-whatsapp-plan="[^"]+"/g) || []).length === 4, 'Todos os planos devem possuir uma chamada específica para o WhatsApp.');
+check(/planWhatsappLinks\.forEach/.test(javascript) && /contratar o plano \$\{planName\}/.test(javascript), 'A mensagem do WhatsApp não identifica o plano escolhido.');
 
 if (failures.length) {
   console.error('Validação falhou:');

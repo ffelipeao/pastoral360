@@ -112,6 +112,7 @@ const primaryWhatsapp = document.querySelector('[data-whatsapp-primary]');
 const footerContacts = document.querySelector('[data-footer-contacts]');
 const contactFallback = document.querySelector('[data-contact-fallback]');
 const floatingWhatsapp = document.querySelector('[data-floating-whatsapp]');
+const planWhatsappLinks = document.querySelectorAll('[data-whatsapp-plan]');
 const whatsappMessage = SITE_CONFIG.whatsappMessage.trim();
 const whatsappUrl = whatsappNumber ? new URL(`https://wa.me/${whatsappNumber}`) : null;
 if (whatsappUrl) {
@@ -124,6 +125,20 @@ if (whatsappUrl && primaryWhatsapp) {
 
 if (whatsappUrl && floatingWhatsapp) {
   floatingWhatsapp.href = whatsappUrl.href;
+}
+
+if (whatsappNumber) {
+  planWhatsappLinks.forEach((link) => {
+    const planName = link.dataset.whatsappPlan?.trim();
+    if (!planName) return;
+
+    const planWhatsappUrl = new URL(`https://wa.me/${whatsappNumber}`);
+    planWhatsappUrl.searchParams.set(
+      'text',
+      `Olá! Gostaria de conhecer e contratar o plano ${planName} da Pastoral 360.`,
+    );
+    link.href = planWhatsappUrl.href;
+  });
 }
 
 if (whatsappUrl && footerContacts) {
