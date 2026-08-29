@@ -61,6 +61,8 @@ const revealCards = [...document.querySelectorAll([
   '.branch-card',
   '.profile-card',
   '.steps-list li',
+  '.pricing-card',
+  '.trial-banner',
   '.faq-list details',
 ].join(', '))];
 
