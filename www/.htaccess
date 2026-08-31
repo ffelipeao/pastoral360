@@ -1,0 +1,35 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Bloqueia dotfiles e segmentos de traversal antes do front controller.
+    RewriteRule "(^|/)\." - [F,L]
+    RewriteCond %{THE_REQUEST} "(?:^|[[:space:]])[^?]*(?:\.\.|%2e)" [NC]
+    RewriteRule ^ - [F,L]
+
+    # Preserve arquivos e diretórios públicos existentes, incluindo o build Vite.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [END]
+
+    # HTTPS/canonical são tratados pela aplicação quando APP_FORCE_HTTPS e
+    # APP_CANONICAL_HOST estiverem configurados, inclusive atrás de proxy.
+    RewriteRule ^ index.php [END]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    DirectoryIndex index.php
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+</IfModule>
+
+<FilesMatch "(^\.|(?:^|\.)env(?:\.|$)|artisan|composer\.(?:json|lock)|phpunit\.xml|.*\.(?:log|sqlite))">
+    Require all denied
+</FilesMatch>

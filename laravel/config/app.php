@@ -54,6 +54,10 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'force_https' => (bool) env('APP_FORCE_HTTPS', false),
+
+    'canonical_host' => env('APP_CANONICAL_HOST'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
