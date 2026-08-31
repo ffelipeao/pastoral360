@@ -43,7 +43,7 @@
   },
   "git": {
     "require_clean_repository": true,
-    "create_commit_after_step": false,
+    "create_commit_after_step": true,
     "allow_commit": false,
     "allow_push": false,
     "branch_prefix": "feature/spec-",
