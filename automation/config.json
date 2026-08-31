@@ -27,8 +27,8 @@
       },
       "laravel": {
         "commands": [
-          "php artisan test",
-          "./vendor/bin/pint --test"
+          "php gestao/artisan test",
+          "gestao/vendor/bin/pint --test"
         ]
       },
       "none": {
@@ -36,7 +36,8 @@
       }
     },
     "spec_profiles": {
-      "docs/specs/001-site-institucional/spec.md": "static"
+      "docs/specs_geral/001-site-institucional/spec.md": "static",
+      "docs/specs_geral/002-plataforma-multitenant/spec.md": "laravel"
     }
   },
   "git": {

@@ -182,5 +182,5 @@ Validar o MVP completo contra os requisitos e registrar uma forma confiável de 
 Na raiz do projeto, execute:
 
 ```bash
-python3 automation/orchestrator.py docs/specs/001-site-institucional/
+python3 automation/orchestrator.py docs/specs_geral/001-site-institucional/
 ```
