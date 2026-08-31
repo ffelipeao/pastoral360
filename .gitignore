@@ -10,6 +10,23 @@ automation/state/
 .env
 .env.*
 !.env.example
+laravel/.env
+laravel/.env.*
+!laravel/.env.example
+!laravel/.env.testing
+
+# Dependências e artefatos da aplicação Laravel
+laravel/vendor/
+laravel/node_modules/
+laravel/storage/*.key
+laravel/storage/framework/cache/data/*
+laravel/storage/framework/sessions/*
+laravel/storage/framework/views/*
+laravel/storage/logs/*
+laravel/bootstrap/cache/*.php
+www/build/
+www/hot
+www/storage
 
 # Sistema operacional e editores
 .DS_Store
