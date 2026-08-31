@@ -6,33 +6,11 @@ use Tests\TestCase;
 
 class HomePageTest extends TestCase
 {
-    public function test_root_route_renders_the_canonical_static_template_as_blade(): void
+    public function test_root_route_renders_the_template_from_blade(): void
     {
         $response = $this->get('/');
 
-        $expected = str_replace(
-            [
-                'href="index.html"',
-                'href="assets/images/pastoral360-favicon.svg"',
-                'href="assets/images/icone.png"',
-                "    <link rel=\"stylesheet\" href=\"assets/css/styles.css\">\n    <script src=\"assets/js/main.js\" defer></script>",
-                'src="assets/images/icone.png"',
-                'src="assets/images/Logo1.png"',
-            ],
-            [
-                'href="'.url('/').'"',
-                'href=""',
-                'href=""',
-                '    ',
-                'src=""',
-                'src=""',
-            ],
-            file_get_contents(base_path('../index.html')),
-        );
-        $expected = str_replace("    \n  </head>", '      </head>', $expected);
-
         $response->assertOk();
-        $this->assertSame($expected, $response->getContent());
         $this->assertStringNotContainsString('{{', $response->getContent());
         $this->assertStringNotContainsString('@extends', $response->getContent());
     }

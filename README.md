@@ -1,67 +1,144 @@
 # Pastoral 360
 
-Site institucional estático construído com HTML, CSS e JavaScript, com contato
-direto pelo WhatsApp.
+Site institucional em Laravel 12. O núcleo privado da aplicação fica em
+`laravel/`; o document root publicável é exclusivamente `www/`. O template e
+seus assets-fonte migrados ficam em `laravel/resources/`. A cópia estática da
+raiz permanece temporariamente como baseline até a validação visual final
+registrada na Etapa 6.
 
-## Executar localmente
+## Requisitos
 
-Na raiz do projeto, inicie um servidor HTTP local:
+- PHP 8.2 ou superior com as extensões `pdo`, `mbstring`, `openssl`,
+  `tokenizer`, `xml`, `ctype`, `json` e `bcmath`;
+- Composer;
+- Node.js e npm;
+- PostgreSQL em produção ou SQLite para desenvolvimento e testes locais.
+
+## Instalação local
+
+Na raiz do repositório:
 
 ```bash
-python3 -m http.server 8000
+cd laravel
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+touch database/database.sqlite
 ```
 
-Abra `http://localhost:8000` no navegador.
+No `.env` local, use `DB_CONNECTION=sqlite`, informe em `DB_DATABASE` o caminho
+absoluto de `laravel/database/database.sqlite`, desative
+`APP_FORCE_HTTPS` e deixe `APP_CANONICAL_HOST` vazio. O `.env` é local, contém
+segredos e nunca deve ser versionado.
 
-## Validar
+O site não depende de banco, mas as migrations podem ser preparadas com:
 
-Execute a validação automatizada da estrutura, dos links internos, dos labels,
-da hierarquia de títulos, dos ativos e dos ganchos de interação:
+```bash
+php artisan migrate
+```
+
+## Execução e desenvolvimento
+
+Em um terminal, dentro de `laravel/`:
+
+```bash
+php artisan serve
+```
+
+Em outro terminal, também em `laravel/`, inicie o Vite:
+
+```bash
+npm run dev
+```
+
+Acesse `http://127.0.0.1:8000`. O Laravel está configurado para usar `www/`
+como diretório público mesmo quando iniciado por `artisan serve`.
+
+## Build e validações
+
+Gere os assets de produção:
+
+```bash
+cd laravel
+npm run build
+```
+
+O build cria `www/build/`. Para renderizar a página pelo Laravel e validar o
+resultado junto aos assets do build, rode na raiz do repositório:
 
 ```bash
 node scripts/validate.mjs
-node --check assets/js/main.js
 ```
 
-Não há etapa de build: o HTML da raiz e a pasta `assets/` são o
-artefato publicável. O checklist completo, incluindo os testes manuais, está em
-[`docs/specs/001-site-institucional/verification.md`](docs/specs/001-site-institucional/verification.md).
+Essa verificação não exige servidor HTTP: ela lê o HTML renderizado, valida links internos, títulos,
+atributos acessíveis e conteúdo, e confirma que todos os assets locais
+existem. Para validar uma origem publicada e suas respostas HTTP, passe a URL
+como argumento, por exemplo `node scripts/validate.mjs https://example.com/`.
 
-## Publicar em hospedagem estática
+Execute a suíte completa e o formatador em modo de verificação:
 
-1. Configure em `assets/js/main.js` apenas os dados comerciais confirmados em
-   `SITE_CONFIG` (URL oficial, imagem social e canais de contato).
-2. Execute os comandos da seção **Validar** e conclua o checklist manual.
-3. Publique `index.html`, `.htaccess` e a pasta `assets/`, preservando a
-   estrutura de caminhos e garantindo que arquivos iniciados por ponto sejam
-   incluídos no deploy.
-4. Configure o diretório publicado como raiz do site, habilite HTTPS na
-   hospedagem e confirme que o redirecionamento de HTTP para HTTPS funciona.
-5. Após publicar, repita o checklist na URL definitiva e execute o Lighthouse
-   em modo móvel.
+```bash
+cd laravel
+php artisan test
+./vendor/bin/pint --test
+```
 
-Serviços como GitHub Pages, Netlify, Cloudflare Pages ou hospedagens equivalentes
-podem servir estes arquivos diretamente, sem comando de build.
+Valide também o fluxo de empacotamento sem acessar a hospedagem:
 
-## Segurança e privacidade na KingHost
+```bash
+scripts/tests/deploy-kinghost-test.sh
+./scripts/deploy-kinghost.sh --validate
+```
 
-O arquivo `.htaccess` desabilita listagem de diretórios, força HTTPS e configura
-cabeçalhos contra interpretação indevida de conteúdo, enquadramento por páginas
-externas e acesso desnecessário a recursos do dispositivo. Depois do deploy,
-confirme no painel da KingHost que o certificado SSL está ativo antes de testar o
-redirecionamento.
+## Configuração de produção
 
-A política de conteúdo permite somente os ativos locais, o Google Analytics já
-presente no projeto e suas conexões necessárias. Caso outro serviço externo seja
-adicionado, revise a `Content-Security-Policy` de forma restritiva.
+Use `laravel/.env.example` como referência e crie o `.env` apenas no servidor.
+Defina `APP_URL`, `APP_FORCE_HTTPS`, `APP_CANONICAL_HOST`, sessão, cache, logs e
+PostgreSQL conforme o ambiente. Mantenha `APP_DEBUG=false`. Garanta escrita pelo
+usuário do PHP em `laravel/storage/` e `laravel/bootstrap/cache/`, sem usar
+permissão `777`.
 
-O Google Analytics atualmente carrega assim que a página é aberta. Antes da
-publicação definitiva, valide a necessidade de consentimento e de uma política de
-privacidade conforme o fluxo de dados adotado e a LGPD. Senhas, tokens e acessos
-da KingHost nunca devem ser adicionados ao repositório.
+O document root deve apontar somente para `www/`. Não publique `laravel/` como
+diretório acessível pela web. Detalhes de ambientes e segurança estão em
+[`ambientes-etapa-4.md`](docs/specs/002-conversao-static-laravel/ambientes-etapa-4.md).
+
+## Deploy na Kinghost
+
+Valide as origens sem alterar arquivos locais ou remotos:
+
+```bash
+./scripts/deploy-kinghost.sh --validate
+```
+
+Faça um ensaio completo em um diretório novo:
+
+```bash
+./scripts/deploy-kinghost.sh --package /tmp/pastoral360-package
+```
+
+Para publicar, configure o host SSH e o caminho absoluto da conta:
+
+```bash
+SSH_HOST=pastoral360 REMOTE_HOME=/home/usuario REMOTE_PHP=php82 \
+  ./scripts/deploy-kinghost.sh --deploy
+```
+
+O script executa testes e build antes de montar `~/laravel` e `~/www`, preserva
+`.env` e storage compartilhados e mantém backup do código para rollback. O
+procedimento completo de primeira publicação, atualização, manutenção e rollback
+está em
+[`deploy-kinghost-etapa-5.md`](docs/specs/002-conversao-static-laravel/deploy-kinghost-etapa-5.md).
+
+## Paridade da migração
+
+A comparação final com o baseline estático, incluindo larguras, preferências de
+movimento, acessibilidade, SEO, interações e diferenças técnicas inevitáveis,
+está registrada em
+[`paridade-etapa-6.md`](docs/specs/002-conversao-static-laravel/paridade-etapa-6.md).
 
 ## Contato
 
-O WhatsApp é o único canal de conversão da página. O número e a mensagem inicial
-ficam centralizados em `SITE_CONFIG`, e o botão flutuante permanece disponível
-durante toda a navegação.
+O WhatsApp é o único canal de conversão da página. Número e mensagens ficam em
+`laravel/resources/js/app.js`; o botão flutuante permanece disponível durante a
+navegação.
