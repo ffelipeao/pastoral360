@@ -15,22 +15,21 @@ class HomePageTest extends TestCase
                 'href="index.html"',
                 'href="assets/images/pastoral360-favicon.svg"',
                 'href="assets/images/icone.png"',
-                'href="assets/css/styles.css"',
+                "    <link rel=\"stylesheet\" href=\"assets/css/styles.css\">\n    <script src=\"assets/js/main.js\" defer></script>",
                 'src="assets/images/icone.png"',
                 'src="assets/images/Logo1.png"',
-                'src="assets/js/main.js"',
             ],
             [
                 'href="'.url('/').'"',
-                'href="'.asset('assets/images/pastoral360-favicon.svg').'"',
-                'href="'.asset('assets/images/icone.png').'"',
-                'href="'.asset('assets/css/styles.css').'"',
-                'src="'.asset('assets/images/icone.png').'"',
-                'src="'.asset('assets/images/Logo1.png').'"',
-                'src="'.asset('assets/js/main.js').'"',
+                'href=""',
+                'href=""',
+                '    ',
+                'src=""',
+                'src=""',
             ],
             file_get_contents(base_path('../index.html')),
         );
+        $expected = str_replace("    \n  </head>", '      </head>', $expected);
 
         $response->assertOk();
         $this->assertSame($expected, $response->getContent());
@@ -108,21 +107,41 @@ class HomePageTest extends TestCase
         $this->assertStringContainsString('data-whatsapp-plan="Multi-Igrejas" data-whatsapp-price="a partir de R$ 199,90/mês"', $content);
     }
 
-    public function test_home_page_uses_laravel_urls_for_local_assets(): void
+    public function test_home_page_uses_vite_for_all_local_assets(): void
     {
-        $response = $this->get('/');
+        $view = file_get_contents(resource_path('views/home.blade.php'));
 
         foreach ([
-            'assets/images/pastoral360-favicon.svg',
-            'assets/images/icone.png',
-            'assets/images/Logo1.png',
-            'assets/css/styles.css',
-            'assets/js/main.js',
+            "Vite::asset('resources/images/pastoral360-favicon.svg')",
+            "Vite::asset('resources/images/icone.png')",
+            "Vite::asset('resources/images/Logo1.png')",
+            "@vite(['resources/css/app.css', 'resources/js/app.js'])",
         ] as $path) {
-            $response->assertSee(asset($path), false);
+            $this->assertStringContainsString($path, $view);
         }
 
-        $response->assertSee('class="brand" href="'.url('/').'"', false);
+        $this->assertStringNotContainsString("asset('assets/", $view);
+        $this->get('/')->assertSee('class="brand" href="'.url('/').'"', false);
+    }
+
+    public function test_vite_build_targets_the_external_public_directory(): void
+    {
+        $config = file_get_contents(base_path('vite.config.js'));
+
+        $this->assertStringContainsString("publicDirectory: '../www'", $config);
+        $this->assertStringContainsString("outDir: '../www/build'", $config);
+        $this->assertStringContainsString("buildDirectory: 'build'", $config);
+        $this->assertStringContainsString('publicDir: false', $config);
+
+        foreach ([
+            'css/app.css',
+            'js/app.js',
+            'images/pastoral360-favicon.svg',
+            'images/icone.png',
+            'images/Logo1.png',
+        ] as $asset) {
+            $this->assertFileExists(resource_path($asset));
+        }
     }
 
     public function test_home_page_does_not_require_a_database_connection(): void

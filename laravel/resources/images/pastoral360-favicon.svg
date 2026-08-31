@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pastoral360">
+  <defs>
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#155EEF"/>
+      <stop offset="1" stop-color="#18C7B5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 360 / cuidado pastoral -->
+  <path d="M51.5 43.5A24 24 0 1 0 13.2 46.2"
+        fill="none" stroke="url(#g)" stroke-width="6"
+        stroke-linecap="round"/>
+
+  <!-- igreja -->
+  <path d="M23 30.2 32 21l9 9.2V45H23V30.2Z"
+        fill="#0B2A55"/>
+  <path d="M29.2 45V36.8a2.8 2.8 0 0 1 5.6 0V45"
+        fill="#fff"/>
+
+  <!-- cruz -->
+  <path d="M32 13.5v9M28.5 17h7"
+        stroke="#0B2A55" stroke-width="3"
+        stroke-linecap="round"/>
+
+  <!-- mão / acolhimento -->
+  <path d="M13.3 45.8c5.5-4 10.4-4.1 15.1-.8 4.7 3.2 9.5 3.1 14.4-.2 2.7-1.8 5.1-1.9 7.2-.3"
+        fill="none" stroke="url(#g)" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

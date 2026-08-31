@@ -44,16 +44,15 @@
     </script>
     <!-- A URL canônica, og:url e a imagem social só são publicadas quando configuradas em SITE_CONFIG. -->
     <title>Pastoral 360 | Gestão integrada para igrejas</title>
-    <link rel="icon" href="{{ asset('assets/images/pastoral360-favicon.svg') }}" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/icone.png') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
-    <script src="{{ asset('assets/js/main.js') }}" defer></script>
+    <link rel="icon" href="{{ Vite::asset('resources/images/pastoral360-favicon.svg') }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ Vite::asset('resources/images/icone.png') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>
     <header class="site-header">
       <div class="header-container">
         <a class="brand" href="{{ url('/') }}" aria-label="Pastoral 360 — início">
-          <img class="brand-mark" src="{{ asset('assets/images/icone.png') }}" width="1254" height="1254" alt="">
+          <img class="brand-mark" src="{{ Vite::asset('resources/images/icone.png') }}" width="1254" height="1254" alt="">
           <span class="brand-name">Pastoral <strong>360</strong></span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
@@ -404,7 +403,7 @@
       <div class="site-content footer-layout">
         <div>
           <a class="brand footer-brand" href="#inicio" aria-label="Pastoral 360 — início">
-            <img class="footer-logo" src="{{ asset('assets/images/Logo1.png') }}" width="1254" height="1254" alt="">
+            <img class="footer-logo" src="{{ Vite::asset('resources/images/Logo1.png') }}" width="1254" height="1254" alt="">
           </a>
           <p>Gestão integrada para as rotinas da igreja.</p>
         </div>
