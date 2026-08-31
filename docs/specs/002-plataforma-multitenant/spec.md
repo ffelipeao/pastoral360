@@ -4,7 +4,7 @@
 
 Construir a aplicação de gestão da Pastoral360 em Laravel, servida em `/gestao`, mantendo o site institucional estático da raiz independente. Cada organização contratante é um Tenant isolado em schema PostgreSQL próprio; sede e filiais são congregações internas desse Tenant.
 
-Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalhamento de multi-tenancy em `../specs/architecture/multi-tenancy.md` e a decisão em `../adr/ADR-001-multitenancy-schema-per-tenant.md`. Em caso de divergência, a ADR e as regras de isolamento têm precedência.
+Antes de implementar qualquer etapa, ler os documentos em `../referencias/`, o detalhamento de multi-tenancy em `../referencias/architecture/multi-tenancy.md` e a decisão em `../adr/ADR-001-multitenancy-schema-per-tenant.md`. Em caso de divergência, a ADR e as regras de isolamento têm precedência.
 
 ## Restrições globais
 
@@ -20,11 +20,11 @@ Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalha
 
 ### Referências obrigatórias
 
-- `../specs/01-visao-e-arquitetura.md`
-- `../specs/02-tenancy-e-isolamento.md`
-- `../specs/05-modelo-de-dados.md`
-- `../specs/06-rotas-e-implantacao.md`
-- `../specs/architecture/multi-tenancy.md`
+- `../referencias/01-visao-e-arquitetura.md`
+- `../referencias/02-tenancy-e-isolamento.md`
+- `../referencias/05-modelo-de-dados.md`
+- `../referencias/06-rotas-e-implantacao.md`
+- `../referencias/architecture/multi-tenancy.md`
 
 ### Requisitos
 
@@ -48,9 +48,9 @@ Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalha
 
 ### Referências obrigatórias
 
-- `../specs/03-identidade-e-permissoes.md`
-- RF-02 a RF-05 de `../specs/04-requisitos-funcionais.md`
-- seções landlord, congregações e autorização de `../specs/05-modelo-de-dados.md`
+- `../referencias/03-identidade-e-permissoes.md`
+- RF-02 a RF-05 de `../referencias/04-requisitos-funcionais.md`
+- seções landlord, congregações e autorização de `../referencias/05-modelo-de-dados.md`
 
 ### Requisitos
 
@@ -73,9 +73,9 @@ Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalha
 
 ### Referências obrigatórias
 
-- RF-06 a RF-09 de `../specs/04-requisitos-funcionais.md`
-- entidades correspondentes em `../specs/05-modelo-de-dados.md`
-- fluxos de batismo e isolamento em `../specs/07-qualidade-e-aceite.md`
+- RF-06 a RF-09 de `../referencias/04-requisitos-funcionais.md`
+- entidades correspondentes em `../referencias/05-modelo-de-dados.md`
+- fluxos de batismo e isolamento em `../referencias/07-qualidade-e-aceite.md`
 
 ### Requisitos
 
@@ -97,9 +97,9 @@ Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalha
 
 ### Referências obrigatórias
 
-- RF-10 de `../specs/04-requisitos-funcionais.md`
-- seção de tesouraria de `../specs/05-modelo-de-dados.md`
-- critérios financeiros de `../specs/07-qualidade-e-aceite.md`
+- RF-10 de `../referencias/04-requisitos-funcionais.md`
+- seção de tesouraria de `../referencias/05-modelo-de-dados.md`
+- critérios financeiros de `../referencias/07-qualidade-e-aceite.md`
 
 ### Requisitos
 
@@ -120,9 +120,9 @@ Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalha
 
 ### Referências obrigatórias
 
-- RF-11 a RF-15 de `../specs/04-requisitos-funcionais.md`
-- `../specs/06-rotas-e-implantacao.md`
-- critérios de evento de `../specs/07-qualidade-e-aceite.md`
+- RF-11 a RF-15 de `../referencias/04-requisitos-funcionais.md`
+- `../referencias/06-rotas-e-implantacao.md`
+- critérios de evento de `../referencias/07-qualidade-e-aceite.md`
 
 ### Requisitos
 
@@ -145,9 +145,9 @@ Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalha
 
 ### Referências obrigatórias
 
-- `../specs/07-qualidade-e-aceite.md`
-- `../specs/08-migracao-e-entrega.md`
-- `../specs/architecture/multi-tenancy.md`
+- `../referencias/07-qualidade-e-aceite.md`
+- `../referencias/08-migracao-e-entrega.md`
+- `../referencias/architecture/multi-tenancy.md`
 
 ### Requisitos
 
@@ -163,7 +163,7 @@ Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalha
 - Totais por tabela, unidade e movimentos financeiros são reconciliados antes do corte.
 - Falha em um Tenant não contamina o contexto nem impede o relatório dos demais.
 - Backup e rollback são ensaiados antes da liberação.
-- Todos os gates de `../specs/08-migracao-e-entrega.md` estão atendidos ou registrados como bloqueio explícito.
+- Todos os gates de `../referencias/08-migracao-e-entrega.md` estão atendidos ou registrados como bloqueio explícito.
 - Testes, análise de estilo e auditorias disponíveis passam sem pendências críticas.
 
 ## Executar com o orquestrador
@@ -171,11 +171,11 @@ Antes de implementar qualquer etapa, ler os documentos em `../specs/`, o detalha
 Na raiz do projeto, liste as etapas antes de iniciar:
 
 ```bash
-python3 automation/orchestrator.py docs/specs_geral/002-plataforma-multitenant/ --list-steps
+python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/ --list-steps
 ```
 
 Execute a spec completa ou limite o intervalo com `--from-step` e `--to-step`:
 
 ```bash
-python3 automation/orchestrator.py docs/specs_geral/002-plataforma-multitenant/
+python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/
 ```

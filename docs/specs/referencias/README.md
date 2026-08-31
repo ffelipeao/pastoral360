@@ -1,8 +1,10 @@
-# Especificações do novo ChamaViva
+# Referências da plataforma Pastoral360
 
 ## Objetivo
 
 Estas especificações definem o **Pastoral360** como plataforma SaaS multi-tenant por schema PostgreSQL. Cada igreja ou ministério contratante é um Tenant estruturalmente isolado; matriz e filiais são congregações internas ao Tenant.
+
+Estes documentos detalham requisitos e decisões compartilhados pelas specs executáveis. Eles não possuem etapas próprias e não devem ser passados diretamente ao orquestrador.
 
 O produto terá duas áreas independentes no mesmo domínio:
 

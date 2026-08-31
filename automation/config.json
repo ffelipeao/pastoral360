@@ -36,14 +36,14 @@
       }
     },
     "spec_profiles": {
-      "docs/specs_geral/001-site-institucional/spec.md": "static",
-      "docs/specs_geral/002-plataforma-multitenant/spec.md": "laravel"
+      "docs/specs/001-site-institucional/spec.md": "static",
+      "docs/specs/002-plataforma-multitenant/spec.md": "laravel"
     }
   },
   "git": {
     "require_clean_repository": true,
-    "create_commit_after_step": true,
-    "allow_commit": true,
+    "create_commit_after_step": false,
+    "allow_commit": false,
     "allow_push": false,
     "branch_prefix": "feature/spec-",
     "commit_types": {

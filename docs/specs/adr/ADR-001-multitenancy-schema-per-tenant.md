@@ -43,6 +43,6 @@ Usar `landlord` para dados SaaS e um schema `tenant_NNNNNN` por Tenant. Centrali
 
 ## Referências
 
-- [Arquitetura multi-tenant](../specs/architecture/multi-tenancy.md)
-- [Tenancy e isolamento](../specs/02-tenancy-e-isolamento.md)
-- [Modelo de dados](../specs/05-modelo-de-dados.md)
+- [Arquitetura multi-tenant](../referencias/architecture/multi-tenancy.md)
+- [Tenancy e isolamento](../referencias/02-tenancy-e-isolamento.md)
+- [Modelo de dados](../referencias/05-modelo-de-dados.md)

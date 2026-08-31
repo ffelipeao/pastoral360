@@ -55,10 +55,13 @@ automation/
 
 docs/specs/
   README.md                    # índice de specs
-  spec-template.md
-  001-painel-analytics/
+  001-site-institucional/
     spec.md                    # etapas executáveis
     reference.md               # detalhes longos (opcional)
+  002-plataforma-multitenant/
+    spec.md
+  referencias/                 # requisitos compartilhados, não executáveis
+  adr/                         # decisões arquiteturais, não executáveis
 ```
 
 ## Formato da spec (obrigatório)
@@ -82,7 +85,7 @@ O orchestrator aceita o arquivo `.md` ou a pasta (resolve para `spec.md`).
 | `static` | `implement-step-static.txt` | comandos definidos no projeto/spec |
 | `jabot` | `implement-step-jabot.txt` | nenhuma (agente roda `php -l`) |
 | `docs` | `implement-step-docs.txt` | nenhuma |
-| `laravel` | `implement-step.txt` | `php artisan test` + Pint |
+| `laravel` | `implement-step.txt` | `php gestao/artisan test` + Pint |
 | `none` | fallback | nenhuma |
 
 Detecção automática:
@@ -114,20 +117,20 @@ Rodar da raiz do repositório.
 ### Listar etapas
 
 ```bash
-python3 automation/orchestrator.py docs/specs/001-painel-analytics/ --list-steps
+python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/ --list-steps
 ```
 
 ### Executar etapas
 
 ```bash
 # Todas (agente padrão, config.json → execution.agent)
-python3 automation/orchestrator.py docs/specs/001-painel-analytics/
+python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/
 
 # Intervalo (ex.: só a classe)
-python3 automation/orchestrator.py docs/specs/001-painel-analytics/ --from-step 1 --to-step 1
+python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/ --from-step 1 --to-step 1
 
 # Forçando o backend Claude Code nesta execução
-python3 automation/orchestrator.py docs/specs/001-painel-analytics/ --agent claude
+python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/ --agent claude
 ```
 
 ### Commit após cada etapa
