@@ -27,6 +27,7 @@ laravel/bootstrap/cache/*.php
 www/build/
 www/hot
 www/storage
+.deploy/
 
 # Sistema operacional e editores
 .DS_Store
