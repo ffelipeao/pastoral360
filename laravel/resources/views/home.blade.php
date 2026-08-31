@@ -1,15 +1,439 @@
 <!doctype html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noindex, nofollow">
-        <title>Pastoral 360</title>
-    </head>
-    <body>
-        <main>
-            <h1>Pastoral 360</h1>
-            <p>Fundação Laravel 12 em preparação.</p>
-        </main>
-    </body>
+  <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWZTSJYEZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-BWZTSJYEZ9');
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Centralize secretaria, tesouraria, pessoas, departamentos, filiais e outras rotinas da igreja na Pastoral 360."
+    >
+    <meta name="robots" content="index, follow">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pastoral 360">
+    <meta property="og:title" content="Pastoral 360 | Gestão integrada para igrejas">
+    <meta
+      property="og:description"
+      content="Sua igreja organizada por completo, em um só lugar. Conheça uma plataforma que integra as principais rotinas da igreja."
+    >
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Pastoral 360 | Gestão integrada para igrejas">
+    <meta
+      name="twitter:description"
+      content="Sua igreja organizada por completo, em um só lugar. Conheça uma plataforma que integra as principais rotinas da igreja."
+    >
+    <script type="application/ld+json">
+      {
+        "@@context": "https://schema.org",
+        "@@type": "SoftwareApplication",
+        "name": "Pastoral 360",
+        "description": "Plataforma de gestão integrada para igrejas.",
+        "inLanguage": "pt-BR"
+      }
+    </script>
+    <!-- A URL canônica, og:url e a imagem social só são publicadas quando configuradas em SITE_CONFIG. -->
+    <title>Pastoral 360 | Gestão integrada para igrejas</title>
+    <link rel="icon" href="{{ asset('assets/images/pastoral360-favicon.svg') }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/icone.png') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+    <script src="{{ asset('assets/js/main.js') }}" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-container">
+        <a class="brand" href="{{ url('/') }}" aria-label="Pastoral 360 — início">
+          <img class="brand-mark" src="{{ asset('assets/images/icone.png') }}" width="1254" height="1254" alt="">
+          <span class="brand-name">Pastoral <strong>360</strong></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span class="sr-only menu-toggle-label">Abrir menu</span>
+          <span class="menu-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <nav id="site-navigation" class="site-navigation" aria-label="Navegação principal">
+          <ul class="navigation-list">
+            <li><a href="#inicio">Início</a></li><li><a href="#recursos">Recursos</a></li>
+            <li><a href="#para-sua-igreja">Para sua igreja</a></li><li><a href="#filiais">Filiais</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+          <a class="button button-primary header-cta" href="#contato">Solicitar demonstração</a>
+        </nav>
+      </div>
+    </header>
+    <main id="conteudo-principal">
+      <section id="inicio" class="hero" aria-labelledby="hero-title">
+        <div class="hero-container">
+          <div class="hero-content">
+            <p class="eyebrow"><span aria-hidden="true"></span>Gestão completa para igrejas</p>
+            <h1 id="hero-title">Sua igreja organizada por completo, em um só lugar.</h1>
+            <p class="hero-description">Centralize secretaria, tesouraria, pessoas, departamentos, filiais, eventos, patrimônio, Escola Bíblica Dominical e pequenos grupos em uma plataforma simples e acessível.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contato">Solicitar demonstração <span aria-hidden="true">→</span></a>
+              <a class="button button-secondary" href="#recursos">Conhecer os recursos</a>
+            </div>
+            <p class="hero-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 12 3 3 6-7"/><circle cx="12" cy="12" r="9"/></svg>Tudo o que a igreja precisa para uma gestão 360°, na palma da mão.</p>
+          </div>
+          <div class="dashboard-showcase" role="img" aria-label="Representação ilustrativa do painel da Pastoral 360">
+            <div class="dashboard-glow" aria-hidden="true"></div>
+            <div class="dashboard-window" aria-hidden="true">
+              <div class="dashboard-topbar"><span class="dashboard-mini-brand">P360</span><span class="dashboard-search"></span><span class="dashboard-avatar"></span></div>
+              <div class="dashboard-body">
+                <div class="dashboard-sidebar"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+                <div class="dashboard-main">
+                  <div class="dashboard-heading"><div><span></span><span></span></div><span></span></div>
+                  <div class="dashboard-cards"><div><span></span><strong></strong><small></small></div><div><span></span><strong></strong><small></small></div><div><span></span><strong></strong><small></small></div></div>
+                  <div class="dashboard-panels"><div class="chart-panel"><span></span><div class="chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="list-panel"><span></span><i></i><i></i><i></i><i></i></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-caption"><span>Visão integrada</span><strong>Rotinas da igreja organizadas</strong><small>Representação ilustrativa</small></div>
+          </div>
+        </div>
+      </section>
+      <section class="transformation" aria-labelledby="transformation-title">
+        <div class="site-content">
+          <div class="section-heading">
+            <p class="section-kicker">Da informação dispersa à visão integrada</p>
+            <h2 id="transformation-title">Menos retrabalho. Mais clareza para cuidar da igreja.</h2>
+            <p>A Pastoral 360 reúne rotinas que antes ficavam separadas e ajuda as equipes a trabalhar com uma visão centralizada.</p>
+          </div>
+          <div class="transformation-grid">
+            <article class="transformation-card transformation-before">
+              <div class="transformation-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h6v5H4zM14 4h6v7h-6zM5 15h5v5H5zM14 15h6v5h-6z"/></svg></div>
+              <p class="card-label">Antes</p>
+              <h3>Informações dispersas</h3>
+              <p>Planilhas, papéis e aplicativos separados aumentam o retrabalho e dificultam uma visão completa.</p>
+            </article>
+            <div class="transformation-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></div>
+            <article class="transformation-card transformation-after">
+              <div class="transformation-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></div>
+              <p class="card-label">Com a Pastoral 360</p>
+              <h3>Gestão centralizada</h3>
+              <p>Processos reunidos, equipes alinhadas e relatórios que apoiam decisões pastorais e administrativas.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="recursos" class="resources" aria-labelledby="resources-title">
+        <div class="site-content">
+          <div class="section-heading">
+            <p class="section-kicker">Recursos</p>
+            <h2 id="resources-title">Uma visão organizada de cada área da igreja</h2>
+            <p>Explore os módulos agrupados por rotina para encontrar com facilidade o que cada equipe precisa.</p>
+          </div>
+
+          <div class="resource-groups">
+            <section class="resource-group resource-group-admin" aria-labelledby="group-admin-title">
+              <div class="resource-group-heading"><span aria-hidden="true">01</span><div><h3 id="group-admin-title">Administração e finanças</h3><p>Rotinas administrativas e financeiras reunidas para facilitar o acompanhamento.</p></div></div>
+              <div class="module-grid">
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 11h6M9 15h3"/></svg></div><h4>Secretaria</h4><p>Organize cadastros, documentos e rotinas administrativas da igreja.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4zM4 10h16M8 15h3"/><path d="M7 7V5h10v2"/></svg></div><h4>Tesouraria</h4><p>Centralize as rotinas financeiras para acompanhar a gestão com clareza.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 9 8-5 8 5v10H4zM9 19v-6h6v6"/></svg></div><h4>Patrimônio</h4><p>Mantenha o controle dos bens e recursos patrimoniais da igreja.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 20V10m7 10V4m7 16v-7M3 20h18"/></svg></div><h4>Relatórios</h4><p>Consulte relatórios personalizados para apoiar decisões administrativas.</p></article>
+              </div>
+            </section>
+
+            <section class="resource-group resource-group-people" aria-labelledby="group-people-title">
+              <div class="resource-group-heading"><span aria-hidden="true">02</span><div><h3 id="group-people-title">Pessoas e jornada pastoral</h3><p>Acompanhamento organizado das pessoas em diferentes momentos da caminhada.</p></div></div>
+              <div class="module-grid">
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21v-8m0 0c-4 0-7-2-7-6 4 0 7 2 7 6Zm0 0c4 0 7-2 7-6-4 0-7 2-7 6Z"/></svg></div><h4>Novos convertidos</h4><p>Acompanhe novos convertidos e organize sua jornada pastoral.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3s-5 6-5 11a5 5 0 0 0 10 0c0-5-5-11-5-11Z"/><path d="M9.5 15.5a3 3 0 0 0 2.5 1.3"/></svg></div><h4>Candidatos ao batismo</h4><p>Gerencie candidatos e acompanhe a preparação para o batismo.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 11h6"/><path d="m10 16 1.5 1.5L15 14"/></svg></div><h4>Apresentação de crianças</h4><p>Registre apresentações de crianças e emita o respectivo certificado.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3.5 20c.4-4 2.2-6 5.5-6s5.1 2 5.5 6M15 15c3.3-.5 5.1 1.2 5.5 4"/></svg></div><h4>Membros</h4><p>Reúna cadastros e informações para o acompanhamento dos membros.</p></article>
+              </div>
+            </section>
+
+            <section class="resource-group resource-group-formation" aria-labelledby="group-formation-title">
+              <div class="resource-group-heading"><span aria-hidden="true">03</span><div><h3 id="group-formation-title">Cultos e formação</h3><p>Agenda, ensino e comunhão organizados em um mesmo contexto.</p></div></div>
+              <div class="module-grid">
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 6h14v14H5zM8 3v6m8-6v6M5 10h14"/><path d="M9 14h2m2 0h2m-6 3h2"/></svg></div><h4>Cultos e eventos</h4><p>Organize a agenda de cultos e eventos para manter todos alinhados.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5C7 4 9.5 4.5 12 7v13c-2.5-2.5-5-3-8-1.5zM20 5.5C17 4 14.5 4.5 12 7v13c2.5-2.5 5-3 8-1.5z"/></svg></div><h4>Escola Bíblica Dominical (EBD)</h4><p>Gerencie a Escola Bíblica Dominical e suas rotinas de formação.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="8" r="2.5"/><circle cx="12" cy="15" r="2.5"/><path d="M10.5 9.5 11 13m2-3.5L13 13M9.5 15H5m9.5 0H19"/></svg></div><h4>Pequenos grupos</h4><p>Acompanhe pequenos grupos e fortaleça a organização das equipes.</p></article>
+              </div>
+            </section>
+
+            <section class="resource-group resource-group-communication" aria-labelledby="group-communication-title">
+              <div class="resource-group-heading"><span aria-hidden="true">04</span><div><h3 id="group-communication-title">Comunicação e ministérios</h3><p>Conteúdo público e áreas ministeriais conectados à gestão da igreja.</p></div></div>
+              <div class="module-grid">
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div><h4>Site público</h4><p>Gerencie o site público da igreja e mantenha suas informações atualizadas.</p></article>
+                <article class="module-card"><div class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></div><h4>Departamentos</h4><p>Organize Jovens, Crianças, Irmãs, Varões e outros departamentos.</p></article>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section id="filiais" class="branches" aria-labelledby="branches-title">
+        <div class="site-content branches-layout">
+          <div class="branches-content">
+            <p class="section-kicker">Gestão de filiais</p>
+            <h2 id="branches-title">Sede e filiais conectadas em uma visão integrada</h2>
+            <p>Acompanhe a operação da igreja-sede e das filiais sem perder a organização de cada unidade.</p>
+            <ul class="branches-benefits">
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 12 3 3 6-7"/><circle cx="12" cy="12" r="9"/></svg>
+                <span><strong>Visão consolidada</strong> para acompanhar sede e filiais em um só contexto.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 12 3 3 6-7"/><circle cx="12" cy="12" r="9"/></svg>
+                <span><strong>Acessos por unidade</strong> para que usuários atuem somente na própria filial.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 12 3 3 6-7"/><circle cx="12" cy="12" r="9"/></svg>
+                <span><strong>Processos padronizados</strong> para organizar as rotinas administrativas entre as unidades.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="branches-map" aria-label="Estrutura ilustrativa da igreja-sede conectada às suas filiais">
+            <article class="branch-card branch-headquarters">
+              <div class="branch-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-6h6v6"/></svg></div>
+              <p>Igreja-sede</p>
+              <strong>Visão consolidada</strong>
+            </article>
+            <div class="branch-connections" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="branch-units">
+              <article class="branch-card"><span aria-hidden="true">01</span><div><p>Filial</p><strong>Acesso à própria unidade</strong></div></article>
+              <article class="branch-card"><span aria-hidden="true">02</span><div><p>Filial</p><strong>Acesso à própria unidade</strong></div></article>
+              <article class="branch-card"><span aria-hidden="true">03</span><div><p>Filial</p><strong>Acesso à própria unidade</strong></div></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="para-sua-igreja" class="profiles" aria-labelledby="profiles-title">
+        <div class="site-content">
+          <div class="section-heading">
+            <p class="section-kicker">Para cada equipe</p>
+            <h2 id="profiles-title">Benefícios que acompanham cada responsabilidade</h2>
+            <p>Cada perfil encontra uma forma prática de organizar as rotinas sob sua responsabilidade.</p>
+          </div>
+          <div class="profile-grid">
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6 20c.5-4 2.5-6 6-6s5.5 2 6 6M18 5l2 2-2 2"/></svg></div>
+              <h3>Liderança</h3>
+              <p>Tenha uma visão ampla da igreja e informações que apoiam decisões pastorais e administrativas.</p>
+            </article>
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 11h6M9 15h3"/></svg></div>
+              <h3>Secretaria</h3>
+              <p>Organize cadastros, jornadas e documentos para reduzir a dispersão das rotinas administrativas.</p>
+            </article>
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4zM4 10h16M8 15h3M7 7V5h10v2"/></svg></div>
+              <h3>Tesouraria</h3>
+              <p>Centralize as rotinas financeiras e acompanhe as informações da área com mais clareza.</p>
+            </article>
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></div>
+              <h3>Líderes de departamento</h3>
+              <p>Conduza as atividades do ministério com autonomia e acesso direcionado ao que precisa acompanhar.</p>
+            </article>
+            <article class="profile-card">
+              <div class="profile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 21h8M12 18v3"/><path d="m8 12 2.5 2.5L16 9"/></svg></div>
+              <h3>Comunicação</h3>
+              <p>Mantenha o site público atualizado e divulgue a agenda de cultos e eventos da igreja.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works" aria-labelledby="how-it-works-title">
+        <div class="site-content">
+          <div class="section-heading how-it-works-heading">
+            <p class="section-kicker">Como funciona</p>
+            <h2 id="how-it-works-title">Da demonstração à rotina organizada</h2>
+            <p>Um caminho claro para conhecer a Pastoral 360 e entender como ela se adapta à realidade da sua igreja.</p>
+          </div>
+          <ol class="steps-list">
+            <li><span class="step-number" aria-hidden="true">1</span><div><h3>Solicite uma demonstração</h3><p>Inicie uma conversa para conhecer a Pastoral 360.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">2</span><div><h3>Conheça os módulos adequados à sua igreja</h3><p>Veja quais recursos atendem às rotinas e equipes da sua realidade.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">3</span><div><h3>Organize sede, filiais e ministérios</h3><p>Reúna a operação em uma gestão integrada para toda a igreja.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="planos" class="pricing" aria-labelledby="pricing-title">
+        <div class="site-content">
+          <div class="section-heading pricing-heading">
+            <p class="section-kicker">Planos e preços</p>
+            <h2 id="pricing-title">Escolha o plano ideal para o momento da sua igreja</h2>
+            <p>Comece com 30 dias grátis e, ao final do período, escolha a modalidade que melhor atende sua gestão.</p>
+          </div>
+
+          <aside class="trial-banner" aria-label="Condições do período grátis">
+            <div>
+              <span class="trial-badge">Por tempo limitado</span>
+              <h3>Experimente grátis por 30 dias</h3>
+              <p>Conheça os principais recursos da Pastoral 360 sem custo e sem cartão de crédito.</p>
+            </div>
+            <a class="button button-primary" href="#contato">Começar período grátis</a>
+          </aside>
+
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <div class="pricing-card-heading">
+                <h3>Essencial</h3>
+                <p>Para igrejas que querem centralizar sua administração.</p>
+              </div>
+              <p class="plan-price"><span>R$</span><strong>49,90</strong><span>/mês</span></p>
+              <ul class="plan-features">
+                <li>Membros ilimitados</li>
+                <li>Até 3 usuários administrativos</li>
+                <li>Gestão de membros e visitantes</li>
+                <li>Secretaria</li>
+                <li>Tesouraria</li>
+                <li>Eventos e agenda</li>
+              </ul>
+              <a class="button button-secondary" href="https://wa.me/5521964239334" target="_blank" rel="noopener noreferrer" data-whatsapp-plan="Essencial" data-whatsapp-price="R$ 49,90/mês">Quero este plano</a>
+            </article>
+
+            <article class="pricing-card pricing-card-featured">
+              <p class="plan-highlight">Mais escolhido</p>
+              <div class="pricing-card-heading">
+                <h3>Gestão</h3>
+                <p>Para igrejas que desejam uma gestão mais completa.</p>
+              </div>
+              <p class="plan-price"><span>R$</span><strong>79,90</strong><span>/mês</span></p>
+              <ul class="plan-features">
+                <li>Tudo do plano Essencial</li>
+                <li>Até 8 usuários administrativos</li>
+                <li>Departamentos e Escola Bíblica</li>
+                <li>Pequenos grupos e patrimônio</li>
+                <li>Novos convertidos e batismos</li>
+                <li>Relatórios avançados</li>
+              </ul>
+              <a class="button button-primary" href="https://wa.me/5521964239334" target="_blank" rel="noopener noreferrer" data-whatsapp-plan="Gestão" data-whatsapp-price="R$ 79,90/mês">Quero este plano</a>
+            </article>
+
+            <article class="pricing-card">
+              <div class="pricing-card-heading">
+                <h3>Completo</h3>
+                <p>Para igrejas em crescimento que precisam de mais recursos.</p>
+              </div>
+              <p class="plan-price"><span>R$</span><strong>129,90</strong><span>/mês</span></p>
+              <ul class="plan-features">
+                <li>Tudo do plano Gestão</li>
+                <li>Até 20 usuários administrativos</li>
+                <li>Site público da igreja</li>
+                <li>Recursos avançados</li>
+                <li>Relatórios gerenciais</li>
+                <li>Suporte prioritário</li>
+              </ul>
+              <a class="button button-secondary" href="https://wa.me/5521964239334" target="_blank" rel="noopener noreferrer" data-whatsapp-plan="Completo" data-whatsapp-price="R$ 129,90/mês">Quero este plano</a>
+            </article>
+
+            <article class="pricing-card">
+              <div class="pricing-card-heading">
+                <h3>Multi-Igrejas</h3>
+                <p>Para ministérios com sede e congregações.</p>
+              </div>
+              <p class="plan-price plan-price-from"><small>A partir de</small><span>R$</span><strong>199,90</strong><span>/mês</span></p>
+              <ul class="plan-features">
+                <li>Todos os recursos da Pastoral 360</li>
+                <li>Até 30 usuários administrativos</li>
+                <li>Sede + até 3 congregações</li>
+                <li>Gestão e permissões por unidade</li>
+                <li>Relatórios consolidados</li>
+                <li>Congregações adicionais por R$ 39,90/mês</li>
+              </ul>
+              <a class="button button-secondary" href="https://wa.me/5521964239334" target="_blank" rel="noopener noreferrer" data-whatsapp-plan="Multi-Igrejas" data-whatsapp-price="a partir de R$ 199,90/mês">Falar com a equipe</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq" aria-labelledby="faq-title">
+        <div class="site-content faq-layout">
+          <div class="section-heading">
+            <p class="section-kicker">Perguntas frequentes</p>
+            <h2 id="faq-title">Informações para conhecer a Pastoral 360</h2>
+            <p>Confira o que já está confirmado sobre a plataforma e sobre o pedido de demonstração.</p>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>A Pastoral 360 atende igrejas com filiais?</summary>
+              <p>Sim. A Pastoral 360 reúne a visão da igreja-sede e das filiais e permite organizar as rotinas de cada unidade.</p>
+            </details>
+            <details>
+              <summary>É possível limitar o acesso de cada usuário?</summary>
+              <p>Sim. Usuários podem ter acesso limitado à própria filial e líderes de departamento acessam o que precisam para suas responsabilidades.</p>
+            </details>
+            <details>
+              <summary>Quais áreas da igreja podem ser gerenciadas?</summary>
+              <p>Secretaria, tesouraria, patrimônio, relatórios, pessoas, pequenos grupos, cultos e eventos, Escola Bíblica Dominical, site público e departamentos estão entre as áreas previstas.</p>
+            </details>
+            <details>
+              <summary>O sistema pode ser acessado pelo celular?</summary>
+              <p>Os detalhes de acesso ao sistema pelo celular ainda precisam ser confirmados pelo responsável pelo produto.</p>
+            </details>
+            <details>
+              <summary>Como solicito uma demonstração?</summary>
+              <p>Use o botão “Falar pelo WhatsApp” para conversar diretamente com a equipe da Pastoral 360.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="contact" aria-labelledby="contact-title">
+        <div class="site-content contact-layout">
+          <div class="contact-content">
+            <p class="section-kicker">Solicite uma demonstração</p>
+            <h2 id="contact-title">Veja como organizar sua igreja em um só lugar</h2>
+            <p>Fale diretamente pelo WhatsApp para conhecer a Pastoral 360 e solicitar uma demonstração.</p>
+            <p class="contact-notice"><strong>Atendimento direto:</strong> ao abrir o WhatsApp, você poderá revisar a mensagem antes de enviá-la.</p>
+            <div class="contact-actions">
+              <a class="button button-secondary" href="https://wa.me/5521964239334" target="_blank" rel="noopener noreferrer" data-whatsapp-primary>Falar pelo WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-content footer-layout">
+        <div>
+          <a class="brand footer-brand" href="#inicio" aria-label="Pastoral 360 — início">
+            <img class="footer-logo" src="{{ asset('assets/images/Logo1.png') }}" width="1254" height="1254" alt="">
+          </a>
+          <p>Gestão integrada para as rotinas da igreja.</p>
+        </div>
+        <nav aria-label="Navegação do rodapé">
+          <h2>Navegação</h2>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="#para-sua-igreja">Para sua igreja</a></li>
+            <li><a href="#filiais">Filiais</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Contato</h2>
+          <p data-contact-fallback>Os canais comerciais serão exibidos aqui quando forem confirmados.</p>
+          <ul class="footer-contacts" data-footer-contacts></ul>
+        </div>
+      </div>
+      <div class="site-content footer-bottom">
+        <p>&copy; <span data-current-year></span> Pastoral 360.</p>
+      </div>
+    </footer>
+    <a class="floating-whatsapp" href="https://wa.me/5521964239334" target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa com a Pastoral 360 no WhatsApp" title="Falar pelo WhatsApp" data-floating-whatsapp>
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 3A12.5 12.5 0 0 0 5.3 22l-1.7 6.3 6.5-1.7A12.5 12.5 0 1 0 16 3Z"/>
+        <path d="M11.2 9.5c.3-.7.7-.7 1.1-.7h.8c.3 0 .6.1.8.6l1.2 2.9c.1.4.1.7-.1 1l-.9 1.1c-.3.3-.2.6 0 .9 1 1.8 2.4 3.2 4.3 4.1.4.2.7.2.9-.1l1.3-1.6c.3-.3.6-.4 1-.2l2.8 1.3c.4.2.7.3.8.6.1.3.1 1.7-.4 2.7-.5 1-2.3 1.9-3.5 2-1 .1-2.2.4-7.1-1.6-5.9-2.4-9.6-8.4-9.9-8.8-.3-.4-2.4-3.2-2.4-6.1 0-2.9 1.5-4.3 2.1-4.9Z"/>
+      </svg>
+    </a>
+  </body>
 </html>
