@@ -3,7 +3,8 @@
 | ID | Especificação | Perfil | Estado |
 |---|---|---|---|
 | SPEC-001 | [Site institucional da Pastoral 360](001-site-institucional/spec.md) | `static` | Planejada |
-| SPEC-002 | [Plataforma SaaS multi-tenant](002-plataforma-multitenant/spec.md) | `laravel` | Planejada |
+| SPEC-002 | [Conversão do site estático para Laravel 12](002-conversao-static-laravel/spec.md) | `laravel` | Planejada |
+| SPEC-003 | [Plataforma SaaS multi-tenant](003-plataforma-multitenant/spec.md) | `laravel` | Planejada |
 
 Cada pasta contém uma `spec.md` executável pelo orquestrador e pode conter um `reference.md` com contexto detalhado.
 

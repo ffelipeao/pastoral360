@@ -58,7 +58,9 @@ docs/specs/
   001-site-institucional/
     spec.md                    # etapas executáveis
     reference.md               # detalhes longos (opcional)
-  002-plataforma-multitenant/
+  002-conversao-static-laravel/
+    spec.md
+  003-plataforma-multitenant/
     spec.md
   referencias/                 # requisitos compartilhados, não executáveis
   adr/                         # decisões arquiteturais, não executáveis
@@ -85,7 +87,7 @@ O orchestrator aceita o arquivo `.md` ou a pasta (resolve para `spec.md`).
 | `static` | `implement-step-static.txt` | comandos definidos no projeto/spec |
 | `jabot` | `implement-step-jabot.txt` | nenhuma (agente roda `php -l`) |
 | `docs` | `implement-step-docs.txt` | nenhuma |
-| `laravel` | `implement-step.txt` | `php gestao/artisan test` + Pint |
+| `laravel` | `implement-step.txt` | `php laravel/artisan test` + Pint |
 | `none` | fallback | nenhuma |
 
 Detecção automática:
@@ -117,20 +119,20 @@ Rodar da raiz do repositório.
 ### Listar etapas
 
 ```bash
-python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/ --list-steps
+python3 automation/orchestrator.py docs/specs/002-conversao-static-laravel/ --list-steps
 ```
 
 ### Executar etapas
 
 ```bash
 # Todas (agente padrão, config.json → execution.agent)
-python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/
+python3 automation/orchestrator.py docs/specs/002-conversao-static-laravel/
 
 # Intervalo (ex.: só a classe)
-python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/ --from-step 1 --to-step 1
+python3 automation/orchestrator.py docs/specs/002-conversao-static-laravel/ --from-step 1 --to-step 1
 
 # Forçando o backend Claude Code nesta execução
-python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/ --agent claude
+python3 automation/orchestrator.py docs/specs/002-conversao-static-laravel/ --agent claude
 ```
 
 ### Commit após cada etapa

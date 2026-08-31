@@ -1,14 +1,14 @@
-# SPEC-002 — Plataforma SaaS multi-tenant da Pastoral360
+# SPEC-003 — Plataforma SaaS multi-tenant da Pastoral360
 
 ## Contexto
 
-Construir a aplicação de gestão da Pastoral360 em Laravel, servida em `/gestao`, mantendo o site institucional estático da raiz independente. Cada organização contratante é um Tenant isolado em schema PostgreSQL próprio; sede e filiais são congregações internas desse Tenant.
+Evoluir a aplicação Laravel 12 criada pela SPEC-002, servindo a gestão em `/gestao` sem alterar o site institucional entregue em `/`. Cada organização contratante é um Tenant isolado em schema PostgreSQL próprio; sede e filiais são congregações internas desse Tenant.
 
 Antes de implementar qualquer etapa, ler os documentos em `../referencias/`, o detalhamento de multi-tenancy em `../referencias/architecture/multi-tenancy.md` e a decisão em `../adr/ADR-001-multitenancy-schema-per-tenant.md`. Em caso de divergência, a ADR e as regras de isolamento têm precedência.
 
 ## Restrições globais
 
-- Criar a aplicação Laravel no diretório `gestao/`; não substituir nem acoplar o site estático da raiz ao banco da gestão.
+- Usar a aplicação do diretório `laravel/` e o diretório público `www/`; não recriar o projeto nem acoplar o site institucional ao banco da gestão.
 - Usar PostgreSQL com schema central `landlord` e schemas no formato `tenant_000001`.
 - Resolver nomes físicos de schema somente a partir do landlord; nunca confiar em schema, Tenant ou congregação enviados pelo cliente.
 - Usar português nos elementos de domínio e manter em inglês apenas convenções do Laravel e de bibliotecas.
@@ -29,7 +29,7 @@ Antes de implementar qualquer etapa, ler os documentos em `../referencias/`, o d
 ### Requisitos
 
 - Confirmar e documentar os pré-requisitos de PHP, PostgreSQL, rewrites/proxy, fila e armazenamento.
-- Criar a base Laravel em `gestao/`, com configuração compatível com a publicação sob `/gestao` e sem alterar a entrega estática de `/`.
+- Estender a base Laravel em `laravel/`, com configuração compatível com a publicação da gestão sob `/gestao` e sem alterar a entrega de `/`.
 - Implementar landlord, cadastro de Tenants, `TenantContext`, resolvedor, gerenciador de conexão e ciclo seguro de inicialização/reset.
 - Separar Global Migrations e Tenant Migrations, com controle central de versão, checksum, lote, tentativas e resultado.
 - Implementar provisioning idempotente com nomes de schema gerados pelo servidor, allowlist e quoting seguro.
@@ -171,11 +171,11 @@ Antes de implementar qualquer etapa, ler os documentos em `../referencias/`, o d
 Na raiz do projeto, liste as etapas antes de iniciar:
 
 ```bash
-python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/ --list-steps
+python3 automation/orchestrator.py docs/specs/003-plataforma-multitenant/ --list-steps
 ```
 
 Execute a spec completa ou limite o intervalo com `--from-step` e `--to-step`:
 
 ```bash
-python3 automation/orchestrator.py docs/specs/002-plataforma-multitenant/
+python3 automation/orchestrator.py docs/specs/003-plataforma-multitenant/
 ```
