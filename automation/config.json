@@ -44,7 +44,7 @@
   "git": {
     "require_clean_repository": true,
     "create_commit_after_step": true,
-    "allow_commit": false,
+    "allow_commit": true,
     "allow_push": false,
     "branch_prefix": "feature/spec-",
     "commit_types": {
